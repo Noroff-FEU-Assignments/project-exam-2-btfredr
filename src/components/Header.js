@@ -8,6 +8,9 @@ const Header = () => {
         <input type="text"></input>
         <button>Search</button>
       </div>
+      <div className="header__login">
+        <button>Login</button>
+      </div>
     </div>
   );
 };
