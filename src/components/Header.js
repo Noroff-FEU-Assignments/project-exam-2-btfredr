@@ -1,7 +1,15 @@
 import React from "react";
 
 const Header = () => {
-  return <div></div>;
+  return (
+    <div className="header">
+      <h1 className="header__logo">Holidaze</h1>
+      <div className="header__search">
+        <input type="text"></input>
+        <button>Search</button>
+      </div>
+    </div>
+  );
 };
 
 export default Header;
