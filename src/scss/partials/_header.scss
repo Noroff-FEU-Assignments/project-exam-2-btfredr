@@ -1,8 +1,14 @@
 .header {
   display: flex;
+  background-color: whitesmoke;
+  z-index: 99;
+  width: 100vw;
+  top: 0;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
 
   &__logo {
-    margin-top: 50px;
     object-fit: contain;
     height: 100px;
     margin-left: 20px;
@@ -11,6 +17,7 @@
   &__search {
     display: flex;
     align-items: center;
+    flex: 1;
   }
 
   &__login {

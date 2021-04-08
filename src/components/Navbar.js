@@ -1,9 +1,17 @@
 import React from "react";
 
-const Header = () => {
+const Navbar = () => {
   return (
     <div className="header">
       <h1 className="header__logo">Holidaze</h1>
+      <div className="header__links">
+        <ul>
+          <li>Home</li>
+          <li>Hotels</li>
+          <li>Enquiries</li>
+          <li>Contact</li>
+        </ul>
+      </div>
       <div className="header__search">
         <input type="text"></input>
         <button>Search</button>
