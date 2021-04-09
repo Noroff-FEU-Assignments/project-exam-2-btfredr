@@ -14,10 +14,11 @@ const Navbar = () => {
             Hotels
           </Link>
           <Link to="/contact" className="nav__link">
-            Home
+            Contact
           </Link>
         </Router>
       </ul>
+      <Switch></Switch>
     </nav>
   );
 };
