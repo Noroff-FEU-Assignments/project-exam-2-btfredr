@@ -1,27 +1,19 @@
-.header {
+.nav {
   display: flex;
-  background-color: whitesmoke;
-  z-index: 99;
-  width: 100vw;
-  top: 0;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  position: sticky;
+  height: 80px;
+  background-color: #fffffc;
 
   &__logo {
-    object-fit: contain;
-    height: 100px;
-    margin-left: 20px;
+    color: #d00000;
+    font-size: 3em;
   }
 
-  &__search {
+  &__links {
     display: flex;
-    align-items: center;
-    flex: 1;
   }
 
-  &__login {
-    display: flex;
-    align-items: center;
+  &__link {
   }
 }
