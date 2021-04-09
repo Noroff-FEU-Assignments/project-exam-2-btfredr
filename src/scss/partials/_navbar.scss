@@ -4,6 +4,8 @@
   align-items: center;
   height: 80px;
   background-color: #fffffc;
+  box-shadow: 7px 15px 16px -4px rgba(0, 0, 0, 0.09);
+  z-index: 100;
 
   &__logo {
     color: #d00000;
@@ -12,8 +14,26 @@
 
   &__links {
     display: flex;
+    justify-content: flex-end;
+    width: 75%;
   }
 
   &__link {
+    padding: 0 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  &__login {
+    padding: 0px 10px 5px;
+    text-decoration: none;
+    color: white;
+    background-color: #d00000;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
   }
 }
