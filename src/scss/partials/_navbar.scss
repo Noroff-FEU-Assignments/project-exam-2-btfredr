@@ -22,7 +22,7 @@
     padding: 0 10px;
     text-decoration: none;
     color: black;
-    font-size: 1em;
+    font-size: 1.2em;
     cursor: pointer;
     font-weight: bold;
   }
@@ -33,7 +33,33 @@
     color: white;
     background-color: #d00000;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1.2em;
     cursor: pointer;
+  }
+
+  &__mobile {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    &__mobile {
+      display: flex;
+      position: absolute;
+      top: 15px;
+      left: 35px;
+      background-color: transparent;
+      color: #d00000;
+      border: none;
+      font-size: 2em;
+    }
+
+    &__links {
+      display: none;
+    }
+    &__links--mobile {
+      position: absolute;
+      display: block;
+      list-style: none;
+    }
   }
 }

@@ -1,7 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [mobile, setMobile] = useState(false);
+
   return (
     <nav className="nav">
       <Link to="/" className="nav__logo">
@@ -22,6 +24,14 @@ const Navbar = () => {
           Login
         </Link>
       </ul>
+
+      <button className="nav__mobile">
+        {mobile ? (
+          <i className="fas fa-times"></i>
+        ) : (
+          <i className="fas fa-bars"></i>
+        )}
+      </button>
     </nav>
   );
 };
