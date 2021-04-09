@@ -1,26 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="header">
-      <h1 className="header__logo">Holidaze</h1>
-      <div className="header__links">
-        <ul>
-          <li>Home</li>
-          <li>Hotels</li>
-          <li>Enquiries</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      <div className="header__search">
-        <input type="text"></input>
-        <button>Search</button>
-      </div>
-      <div className="header__login">
-        <button>Login</button>
-      </div>
-    </div>
+    <nav className="nav">
+      <div className="nav__logo">Holidaze</div>
+      <ul className="nav__links">
+        <Router>
+          <Link to="/" className="nav__link">
+            Home
+          </Link>
+          <Link to="/hotels" className="nav__link">
+            Hotels
+          </Link>
+          <Link to="/contact" className="nav__link">
+            Home
+          </Link>
+        </Router>
+      </ul>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;
