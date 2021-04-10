@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar";
+import Navigation from "../components/Navigation";
 
 const Hotels = () => {
   return (
     <div>
-      <Navbar />
+      <Navigation />
       <h1>Hotels</h1>
     </div>
   );

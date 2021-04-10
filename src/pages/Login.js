@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar";
+import Navigation from "../components/Navigation";
 
 const Login = () => {
   return (
     <div>
-      <Navbar />
+      <Navigation />
       <h1>Login</h1>
     </div>
   );
