@@ -2,10 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [mobile, setMobile] = useState(false);
+  const [toggle, setToggle] = useState(false);
+
+  const handleToggle = () => setToggle(!toggle);
 
   return (
     <nav className="nav">
+      <div className="nav__toggle" onClick={handleToggle}>
+        <i className={toggle ? "fas fa-times" : "fas fa-bars"}></i>
+      </div>
       <Link to="/" className="nav__logo">
         Holidaze
       </Link>
@@ -24,14 +29,6 @@ const Navbar = () => {
           Login
         </Link>
       </ul>
-
-      <button className="nav__mobile">
-        {mobile ? (
-          <i className="fas fa-times"></i>
-        ) : (
-          <i className="fas fa-bars"></i>
-        )}
-      </button>
     </nav>
   );
 };
