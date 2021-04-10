@@ -8,12 +8,20 @@ const Navigation = () => {
         Holidaze
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse className="nav__icon" id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/hotels">Hotels</Nav.Link>
-          <Nav.Link href="/contact">Contact</Nav.Link>
-          <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link href="/" className="nav__link">
+            Home
+          </Nav.Link>
+          <Nav.Link href="/hotels" className="nav__link">
+            Hotels
+          </Nav.Link>
+          <Nav.Link href="/contact" className="nav__link">
+            Contact
+          </Nav.Link>
+          <Nav.Link href="/login" className="nav__login">
+            Login
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
