@@ -1,5 +1,6 @@
 import Heading from "../components/Heading";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const Contact = () => {
   return (
@@ -36,6 +37,7 @@ const Contact = () => {
           <button className="form__btn">Send</button>
         </form>
       </div>
+      <Footer />
     </>
   );
 };
