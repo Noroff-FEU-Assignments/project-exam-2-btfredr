@@ -4,9 +4,11 @@ import Hotels from "./pages/Hotels";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 
+import { AuthProvider } from "./context/AuthContext";
+
 function App() {
   return (
-    <div className="app">
+    <AuthProvider>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -15,7 +17,7 @@ function App() {
           <Route path="/login" component={Login} />
         </Switch>
       </Router>
-    </div>
+    </AuthProvider>
   );
 }
 

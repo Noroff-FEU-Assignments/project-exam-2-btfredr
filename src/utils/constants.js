@@ -1,2 +1,2 @@
-export const BASE_URL = process.env.REACT_APP_STRAPI_URL;
-export const AUTH_PATH = process.env.REACT_APP_AUTH_PATH;
+export const BASE_URL = "https://ancient-beach-84390.herokuapp.com";
+export const AUTH_PATH = "/auth/local";
