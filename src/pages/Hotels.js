@@ -1,11 +1,14 @@
 import Navigation from "../components/Navigation";
+import Heading from "../components/Heading";
 
 const Hotels = () => {
   return (
-    <div>
+    <>
       <Navigation />
-      <h1>Hotels</h1>
-    </div>
+      <div className="container">
+        <Heading title="Available listings" />
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,58 @@
+.login {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.input {
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+@media (max-width: 768px) {
+  .login {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #fffffc;
+  box-shadow: 10px 10px 26px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-top: 2em;
+
+  &__btn {
+    background-color: #d00000;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  input,
+  textarea {
+    border: 1px solid lightgrey;
+    padding: 0.5rem;
+  }
+
+  label {
+    padding: 10px 0px 10px;
+  }
+}
+
+.loginError {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  color: red;
+  max-width: 325px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-top: 25px;
+}

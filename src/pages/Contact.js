@@ -6,7 +6,7 @@ const Contact = () => {
     <>
       <Navigation />
       <div className="container">
-        <Heading title="Contact" />
+        <Heading title="Want to get in contact with us?" />
 
         <form className="form">
           <label>First Name</label>

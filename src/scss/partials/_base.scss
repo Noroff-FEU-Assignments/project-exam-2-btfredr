@@ -22,54 +22,6 @@ img {
   width: 100%;
 }
 
-.login {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  margin: 1rem;
-}
-
-.input {
-  padding: 0.5rem;
-  margin: 1rem;
-}
-
-@media (max-width: 768px) {
-  .login {
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
-  }
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-
-  &__btn {
-    border: none;
-    padding: 0.5rem;
-    margin-top: 1rem;
-    font-weight: bold;
-  }
-
-  input {
-    border: 1px solid lightgrey;
-    padding: 0.5rem;
-  }
-
-  label {
-    padding: 10px 0px 10px;
-  }
-}
-
-.loginError {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
-  color: red;
-  max-width: 325px;
-  font-weight: bold;
-  margin-top: 25px;
-  margin-top: 25px;
+.container {
+  margin-top: 2em;
 }
