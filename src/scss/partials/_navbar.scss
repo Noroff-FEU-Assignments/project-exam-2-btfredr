@@ -15,10 +15,15 @@
     margin-left: 20px;
   }
 
+  &__link:hover {
+    text-decoration: none;
+  }
+
   &__login {
     color: white !important;
     background-color: #d00000;
     margin-left: 20px;
+    padding: 10px 0px;
   }
 
   &__icon {
@@ -29,11 +34,13 @@
     &__link {
       text-align: center;
       margin-left: 0;
+      padding: 0.5em;
     }
 
     &__login {
       text-align: center;
       margin-left: 0;
+      padding: 0.5em;
     }
   }
 }

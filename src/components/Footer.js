@@ -1,10 +1,12 @@
-import Heading from "./Heading";
+import { Link } from "react-router-dom";
 import Paragraph from "./Paragraph";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <Heading title="Holidaze" />
+      <Link to="/" className="footer__logo">
+        <h1>Holidaze</h1>
+      </Link>
       <Paragraph content="&copy; 2021" />
     </footer>
   );
