@@ -13,6 +13,7 @@
   &__link {
     color: black !important;
     margin-left: 20px;
+    margin-top: 10px;
   }
 
   &__link:hover {
@@ -23,7 +24,11 @@
     color: white !important;
     background-color: #d00000;
     margin-left: 20px;
-    padding: 10px 0px;
+    padding: 10px;
+  }
+
+  &__login:hover {
+    text-decoration: none;
   }
 
   &__icon {

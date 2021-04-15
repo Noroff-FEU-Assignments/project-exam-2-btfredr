@@ -1,7 +1,7 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import AuthContext from "../context/AuthContext";
 
@@ -26,25 +26,25 @@ const Navigation = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="nav__icon" id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/" className="nav__link">
+          <Link to="/" className="nav__link">
             Home
-          </Nav.Link>
-          <Nav.Link href="/hotels" className="nav__link">
+          </Link>
+          <Link to="/hotels" className="nav__link">
             Hotels
-          </Nav.Link>
-          <Nav.Link href="/contact" className="nav__link">
+          </Link>
+          <Link to="/contact" className="nav__link">
             Contact
-          </Nav.Link>
+          </Link>
           {auth ? (
             <>
-              <button onClick={logout} className="logout nav-item">
+              <Link onClick={logout} className="nav__login">
                 Log out
-              </button>
+              </Link>
             </>
           ) : (
-            <Nav.Link href="/login" className="nav__login">
+            <Link to="/login" className="nav__login">
               Login
-            </Nav.Link>
+            </Link>
           )}
         </Nav>
       </Navbar.Collapse>
