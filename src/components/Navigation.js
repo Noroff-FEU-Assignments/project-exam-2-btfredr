@@ -1,7 +1,23 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import AuthContext from "../context/AuthContext";
 
 const Navigation = () => {
+  const [auth, setAuth] = useContext(AuthContext);
+
+  const history = useHistory();
+
+  const logout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      setAuth(null);
+      history.push("/");
+    }
+  };
+
   return (
     <Navbar className="nav" bg="light" variant="light" expand="lg">
       <Navbar.Brand href="/" className="nav__logo">
@@ -19,9 +35,17 @@ const Navigation = () => {
           <Nav.Link href="/contact" className="nav__link">
             Contact
           </Nav.Link>
-          <Nav.Link href="/login" className="nav__login">
-            Login
-          </Nav.Link>
+          {auth ? (
+            <>
+              <button onClick={logout} className="logout nav-item">
+                Log out
+              </button>
+            </>
+          ) : (
+            <Nav.Link href="/login" className="nav__login">
+              Login
+            </Nav.Link>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

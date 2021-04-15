@@ -6,6 +6,9 @@ import { BASE_URL, AUTH_PATH } from "../utils/constants";
 import axios from "axios";
 import AuthContext from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import Heading from "../components/Heading";
 
 const Login = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -27,7 +30,7 @@ const Login = () => {
       const response = await axios.post(`${BASE_URL}${AUTH_PATH}`, data);
       console.log("response", response.data);
       setAuth(response.data);
-      history.push("/admin");
+      history.push("/");
     } catch (error) {
       console.log("error", error);
       setLoginError(error.toString());
@@ -37,34 +40,40 @@ const Login = () => {
   };
   return (
     <>
-      <div className="loginError">{loginError && <p>{loginError}</p>}</div>
-      <form className="login" onSubmit={handleSubmit(onSubmit)}>
-        <fieldset disabled={submitting}>
-          <div>
-            <input
-              className="input"
-              name="identifier"
-              placeholder="Username"
-              ref={register}
-              type="text"
-            />
-            {errors.identifier && <p>{errors.identifier.message}</p>}
-          </div>
-          <div>
-            <input
-              className="input"
-              name="password"
-              placeholder="Password"
-              ref={register}
-              type="password"
-            />
-            {errors.password && <p>{errors.password.message}</p>}
-          </div>
-          <button type="submit">
-            {submitting ? "Logging in..." : "Login"}
-          </button>
-        </fieldset>
-      </form>
+      <Navigation />
+      <div className="container">
+        <Heading title="Login" />
+        <div className="loginError">{loginError && <p>{loginError}</p>}</div>
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+          <fieldset disabled={submitting}>
+            <div>
+              <label>Username</label>
+              <input
+                name="identifier"
+                placeholder="Username"
+                ref={register}
+                type="text"
+              />
+              {errors.identifier && <p>{errors.identifier.message}</p>}
+            </div>
+            <div>
+              <label>Password</label>
+              <input
+                name="password"
+                placeholder="Password"
+                ref={register}
+                type="password"
+              />
+              {errors.password && <p>{errors.password.message}</p>}
+            </div>
+            <button className="form__btn" type="submit">
+              {submitting ? "Logging in..." : "Login"}
+            </button>
+          </fieldset>
+        </form>
+      </div>
+
+      <Footer />
     </>
   );
 };
