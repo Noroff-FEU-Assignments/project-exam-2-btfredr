@@ -11,10 +11,12 @@ const Home = () => {
       <div className="home">
         <div className="home__background">
           <div className="home__box">
-            <h1 className="home__title">Looking for a place to stay?</h1>
-            <span className="home__bar"></span>
+            <h1 className="home__title">
+              Looking for a place to stay?
+              <span className="home__bar"></span>
+            </h1>
             <div className="home__text">
-              <Paragraph content="High quality rooms starting at 399 kr" />
+              <Paragraph content="High quality rooms starting at 399 NOK" />
             </div>
 
             <div>

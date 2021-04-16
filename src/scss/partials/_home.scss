@@ -68,7 +68,9 @@
   }
 
   &__text {
-    padding: 1rem;
+    padding: 1em;
+    font-weight: bold;
+    font-size: 19px;
     margin-bottom: 2em;
   }
 
@@ -78,14 +80,24 @@
       flex-direction: column;
       width: 100%;
       padding-top: 1em;
+      height: 350px;
     }
 
     &__title {
-      font-size: 1.8em;
+      font-size: 1.5em;
+      font-weight: 700;
     }
 
     &__btn {
       margin-bottom: 100px;
+    }
+
+    &__bar {
+      width: 50vw;
+    }
+
+    &__text {
+      font-size: 19px;
     }
   }
 }
