@@ -1,0 +1,26 @@
+.listings {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+  .listings {
+    flex-direction: column;
+  }
+}
+
+.listing {
+  cursor: pointer;
+  border-radius: 0 0 5px 5px;
+  margin: 2em;
+  box-shadow: 10px 10px 25px -1px rgba(0, 0, 0, 0.11);
+
+  &__content {
+    padding: 15px;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+}
