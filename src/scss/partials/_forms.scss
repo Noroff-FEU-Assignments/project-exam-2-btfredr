@@ -20,20 +20,25 @@
     border: 1px solid lightgrey;
     padding: 0.5rem;
     width: 100%;
+    outline-width: 0;
   }
 
   label {
     padding: 10px 0px 10px;
+    font-weight: 500;
+  }
+
+  &__error {
+    background-color: #ffc4c4;
+    padding: 0.5em;
+    margin-top: 10px;
+    border: 1px solid black;
   }
 }
 
 .loginError {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
+  display: flex;
+  justify-content: center;
   color: red;
-  max-width: 325px;
   font-weight: bold;
-  margin-top: 25px;
-  margin-top: 25px;
 }
