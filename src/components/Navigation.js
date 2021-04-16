@@ -37,6 +37,12 @@ const Navigation = () => {
           </Link>
           {auth ? (
             <>
+              <Link to="/enquiries" className="nav__link">
+                Enquiries
+              </Link>
+              <Link to="/messages" className="nav__link">
+                Messages
+              </Link>
               <Link onClick={logout} className="nav__login">
                 Log out
               </Link>
