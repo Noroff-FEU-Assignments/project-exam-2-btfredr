@@ -9,7 +9,7 @@
     background-attachment: fixed;
     background-size: cover;
 
-    background-image: url(../../assets/background.jpg);
+    background-image: url(../../assets/background2.jfif);
   }
 
   &__featured {
@@ -58,15 +58,18 @@
     color: white;
     padding: 0.9em;
     font-weight: bold;
+    border-radius: 10px;
   }
 
   &__btn:hover {
+    background-color: white;
+    color: #d00000;
     text-decoration: none;
-    color: white;
   }
 
   &__text {
     padding: 1rem;
+    margin-bottom: 2em;
   }
 
   @media screen and (max-width: 768px) {
