@@ -17,3 +17,10 @@ export const contactSchema = yup.object().shape({
     .required("Please enter your message")
     .min(10, "Message must be more than 10 characters"),
 });
+
+export const productSchema = yup.object().shape({
+  name: yup.string().required("Please enter a title"),
+  price: yup.number().required("Please enter a price"),
+  image_url: yup.string().required("Please enter an image URL"),
+  description: yup.string().required("Please enter a description"),
+});

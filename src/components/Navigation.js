@@ -43,6 +43,9 @@ const Navigation = () => {
               <Link to="/messages" className="nav__link">
                 Messages
               </Link>
+              <Link to="/add" className="nav__link">
+                Add
+              </Link>
               <Link onClick={logout} className="nav__login">
                 Log out
               </Link>

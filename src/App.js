@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Hotels from "./pages/Hotels";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import Add from "./pages/Add";
 import Enquiries from "./pages/Enquiries";
 import Messages from "./pages/Messages";
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/hotels" component={Hotels} />
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
+          <Route path="/add" component={Add} />
           <Route path="/enquiries" component={Enquiries} />
           <Route path="/messages" component={Messages} />
         </Switch>

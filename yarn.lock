@@ -1209,10 +1209,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@hookform/resolvers@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.3.1.tgz#010a65544cfe366cfac6d42d997db2234e2f5fad"
-  integrity sha512-0S9NdY2dgP8/mp8h15PyX1VtX4GVktZjADjwB1Aa3tPAHCdhG4o3lcaUMD6a5WROuuy715F+4wOgnkNxcztgOg==
+"@hookform/resolvers@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.4.0.tgz#3b454463fbb5e7a0de4da029fa34e677f32d8d8d"
+  integrity sha512-KiHc7Uwd2IJMvPTMQ9vQxfss2ulq2gRYL/HYZ90qiTs+07UgGWCikiIvE2pKjjGVltEYjq5eR8x0ITmoyEjGxQ==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
