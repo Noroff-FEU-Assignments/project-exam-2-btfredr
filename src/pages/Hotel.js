@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import Heading from "../components/Heading";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const Hotel = () => {
   const [hotel, setHotel] = useState(null);
@@ -9,20 +12,60 @@ const Hotel = () => {
 
   let history = useHistory();
 
-  const { slug } = useParams();
+  const { id } = useParams();
 
-  if (!slug) {
+  if (!id) {
     history.push("/");
   }
 
-  const url = BASE_URL + '/hotels/' + slug;
+  const url = BASE_URL + "/hotels/" + id;
 
   useEffect(
-      function () {
-          async function
+    function () {
+      async function fetchHotel() {
+        try {
+          const response = await fetch(url);
+          console.log(response);
+
+          if (response.ok) {
+            const json = await response.json();
+            setHotel(json);
+          } else {
+            setError("An error occurred");
+          }
+        } catch (error) {
+          setError(error.toString());
+        } finally {
+          setIsLoading(false);
+        }
       }
-  )
-  return <div></div>;
+      fetchHotel();
+    },
+    [url]
+  );
+
+  if (isLoading) {
+    return <h1>Loading Hotel...</h1>;
+  }
+
+  if (error) {
+    return <div>An error occurred: {error}</div>;
+  }
+
+  return (
+    <>
+      <Navigation />
+      <div className="container">
+        <div className="imageContainer">
+          <img src={hotel.image_url} />
+        </div>
+        <div>
+          <Heading title={hotel.name} />
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Hotel;

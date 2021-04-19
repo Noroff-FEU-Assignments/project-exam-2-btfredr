@@ -2,9 +2,11 @@ const ContentItem = ({ hotel }) => {
   return (
     <>
       <div className="listing">
-        <img src={hotel.image_url} alt="gis" />
+        <img src={hotel.image_url} alt={hotel.name} />
         <div className="listing__content">
-          <h2>{hotel.name}</h2>
+          <a key={hotel.slug} href={`/hotel/${hotel.id}`}>
+            {hotel.name}
+          </a>
           <p>{hotel.slug}</p>
         </div>
       </div>

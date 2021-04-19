@@ -42,3 +42,12 @@ code {
     font-size: 2em;
   }
 }
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 100%;
+  }
+}

@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Add from "./pages/Add";
 import Enquiries from "./pages/Enquiries";
 import Messages from "./pages/Messages";
+import Hotel from "./pages/Hotel";
 
 import { AuthProvider } from "./context/AuthContext";
 
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/hotels" component={Hotels} />
+          <Route path="/hotel/:id" component={Hotel}></Route>
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
           <Route path="/add" component={Add} />
