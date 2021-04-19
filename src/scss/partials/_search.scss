@@ -1,0 +1,14 @@
+.searchBar {
+  outline-width: 0;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  width: 50%;
+}
+
+.searchBar::placeholder {
+  text-align: center;
+}

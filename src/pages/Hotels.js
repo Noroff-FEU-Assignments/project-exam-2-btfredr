@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import ContentGrid from "../components/content/ContentGrid";
+import SearchBar from "../components/SearchBar";
 
 const Hotels = () => {
   const [hotels, setHotels] = useState([]);
@@ -27,6 +28,7 @@ const Hotels = () => {
       <Navigation />
       <div className="container">
         <Heading title="Available listings" />
+        <SearchBar />
         <ContentGrid isLoading={isLoading} hotels={hotels} />
       </div>
       <Footer />
