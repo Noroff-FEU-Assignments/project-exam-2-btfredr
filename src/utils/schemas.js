@@ -19,10 +19,13 @@ export const contactSchema = yup.object().shape({
 });
 
 export const productSchema = yup.object().shape({
-  name: yup.string().required("Please enter a title"),
+  name: yup.string().required("Please enter a name"),
   price: yup.number().required("Please enter a price"),
   image_url: yup.string().required("Please enter an image URL"),
   description: yup.string().required("Please enter a description"),
-  capacity: yup.number().required("Please enter a value"),
+  capacity: yup
+    .number()
+    .required("Please enter a value")
+    .min(0, "Must be greater than zero"),
   slug: yup.string().required("Please enter an ID"),
 });

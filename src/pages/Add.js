@@ -67,7 +67,9 @@ const Add = () => {
             <div>
               <label>Name</label>
               <input name="name" placeholder="Name" ref={register} />
-              {errors.name && <p>{errors.name.message}</p>}
+              {errors.name && (
+                <p className="form__error">{errors.name.message}</p>
+              )}
             </div>
 
             <div>
@@ -78,7 +80,9 @@ const Add = () => {
                 ref={register}
                 type="number"
               />
-              {errors.price && <p>{errors.price.message}</p>}
+              {errors.price && (
+                <p className="form__error">{errors.price.message}</p>
+              )}
             </div>
             <div>
               <label>Description</label>
@@ -88,7 +92,9 @@ const Add = () => {
                 ref={register}
                 type="text"
               />
-              {errors.description && <p>{errors.description.message}</p>}
+              {errors.description && (
+                <p className="form__error">{errors.description.message}</p>
+              )}
             </div>
             <div>
               <label>Image URL</label>
@@ -98,7 +104,9 @@ const Add = () => {
                 ref={register}
                 type="text"
               />
-              {errors.image_url && <p>{errors.image_url.message}</p>}
+              {errors.image_url && (
+                <p className="form__error">{errors.image_url.message}</p>
+              )}
             </div>
 
             <div>
@@ -109,7 +117,9 @@ const Add = () => {
                 ref={register}
                 type="text"
               />
-              {errors.slug && <p>{errors.slug.message}</p>}
+              {errors.slug && (
+                <p className="form__error">{errors.slug.message}</p>
+              )}
             </div>
 
             <div>
@@ -120,7 +130,9 @@ const Add = () => {
                 ref={register}
                 type="number"
               />
-              {errors.capacity && <p>{errors.capacity.message}</p>}
+              {errors.capacity && (
+                <p className="form__error">{errors.capacity.message}</p>
+              )}
             </div>
 
             <div>
@@ -131,7 +143,9 @@ const Add = () => {
                 ref={register}
                 type="checkbox"
               />
-              {errors.featured && <p>{errors.featured.message}</p>}
+              {errors.featured && (
+                <p className="form__error">{errors.featured.message}</p>
+              )}
             </div>
 
             <button type="submit" className="form__btn">
