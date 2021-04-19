@@ -44,7 +44,7 @@ const Add = () => {
   };
 
   useEffect(() => {
-    const getProduct = async () => {
+    const getHotel = async () => {
       try {
         const response = await http.get(`${productPath}/${id}`);
         console.log(response);
@@ -53,23 +53,25 @@ const Add = () => {
         console.log(error);
       }
     };
-    getProduct();
+    getHotel();
   }, [id]);
 
   return (
     <>
       <Navigation />
       <div className="container">
-        <Heading title="Add new product" />
+        <Heading title="Add new establishment" />
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           {postError && <p>{postError}</p>}
           <fieldset disabled={submitting}>
             <div>
+              <label>Name</label>
               <input name="name" placeholder="Name" ref={register} />
               {errors.name && <p>{errors.name.message}</p>}
             </div>
 
             <div>
+              <label>Price</label>
               <input
                 name="price"
                 placeholder="Price"
@@ -79,6 +81,7 @@ const Add = () => {
               {errors.price && <p>{errors.price.message}</p>}
             </div>
             <div>
+              <label>Description</label>
               <textarea
                 name="description"
                 placeholder="Description"
@@ -88,6 +91,7 @@ const Add = () => {
               {errors.description && <p>{errors.description.message}</p>}
             </div>
             <div>
+              <label>Image URL</label>
               <input
                 name="image_url"
                 placeholder="Image URL"
@@ -95,6 +99,39 @@ const Add = () => {
                 type="text"
               />
               {errors.image_url && <p>{errors.image_url.message}</p>}
+            </div>
+
+            <div>
+              <label>Slug</label>
+              <input
+                name="slug"
+                placeholder="Slug"
+                ref={register}
+                type="text"
+              />
+              {errors.slug && <p>{errors.slug.message}</p>}
+            </div>
+
+            <div>
+              <label>Capacity</label>
+              <input
+                name="capacity"
+                placeholder="Capacity"
+                ref={register}
+                type="number"
+              />
+              {errors.capacity && <p>{errors.capacity.message}</p>}
+            </div>
+
+            <div>
+              <label>Featured</label>
+              <input
+                className="form__checkbox"
+                name="featured"
+                ref={register}
+                type="checkbox"
+              />
+              {errors.featured && <p>{errors.featured.message}</p>}
             </div>
 
             <button type="submit" className="form__btn">
