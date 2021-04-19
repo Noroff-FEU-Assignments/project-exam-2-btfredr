@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 import Heading from "../components/Heading";
+import Paragraph from "../components/Paragraph";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
@@ -56,11 +57,12 @@ const Hotel = () => {
     <>
       <Navigation />
       <div className="container">
+        <Heading title={hotel.name} />
         <div className="imageContainer">
           <img src={hotel.image_url} />
         </div>
         <div>
-          <Heading title={hotel.name} />
+          <Paragraph content={hotel.description} />
         </div>
       </div>
       <Footer />
