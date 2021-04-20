@@ -1,32 +1,10 @@
-import { useState } from "react";
-
-const SearchBar = (props) => {
-  const { onSearch } = props;
-
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (e) => {
-    const text = e.target.value;
-    setSearch(text);
-  };
-
-  const handleEnterKeyPress = (e) => {
-    if (e.key === "Enter") {
-      onSearch(search);
-    }
-  };
-
+const SearchBar = () => {
   return (
-    <>
-      <input
-        className="searchBar"
-        onChange={handleSearch}
-        onKeyPress={handleEnterKeyPress}
-        value={search}
-        type="text"
-        placeholder="Search hotels..."
-      />
-    </>
+    <div className="searchBar">
+      <div className="searchBar__dropdown">
+        <div className="searchBar__value"></div>
+      </div>
+    </div>
   );
 };
 

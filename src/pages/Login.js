@@ -54,7 +54,9 @@ const Login = () => {
                 ref={register}
                 type="text"
               />
-              {errors.identifier && <p>{errors.identifier.message}</p>}
+              {errors.identifier && (
+                <p className="form__error">{errors.identifier.message}</p>
+              )}
             </div>
             <div>
               <label>Password</label>
@@ -64,7 +66,9 @@ const Login = () => {
                 ref={register}
                 type="password"
               />
-              {errors.password && <p>{errors.password.message}</p>}
+              {errors.password && (
+                <p className="form__error">{errors.password.message}</p>
+              )}
             </div>
             <button className="form__btn" type="submit">
               {submitting ? "Logging in..." : "Login"}
