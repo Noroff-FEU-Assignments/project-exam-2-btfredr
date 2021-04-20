@@ -28,7 +28,7 @@ const Hotels = () => {
       <Navigation />
       <div className="container">
         <Heading title="Available listings" />
-        <SearchBar />
+        <SearchBar options={hotels.name} />
         <ContentGrid isLoading={isLoading} hotels={hotels} />
       </div>
       <Footer />
