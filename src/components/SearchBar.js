@@ -1,26 +1,43 @@
 import { useState } from "react";
 
-const SearchBar = (options) => {
+const SearchBar = ({ lang }) => {
   const [searchText, setSearchText] = useState("");
   const [suggest, setSuggest] = useState([]);
   const handleChange = (e) => {
-    let searchValue = e.target.value;
-    setSearchText(searchValue);
+    let searchval = e.target.value;
     let suggestion = [];
-    if (searchValue.length > 0) {
-      suggestion = options.filter((e) =>
-        e.toLowerCase().includes(searchValue.toLowerCase())
-      );
+    if (searchval.length > 0) {
+      suggestion = lang
+        .sort()
+        .filter((e) => e.toLowerCase().includes(searchval.toLowerCase()));
     }
-    console.log(suggestion);
-    console.log(searchValue);
+    setSuggest(suggestion);
+    setSearchText(searchval);
+  };
+
+  const getSuggestions = () => {
+    if (suggest.length === 0 && searchText !== "") {
+      return <p>Search content not found</p>;
+    }
+    return (
+      <ul>
+        {suggest.map((item, index) => {
+          return (
+            <div key={index}>
+              <li>{item}</li>
+              <hr />
+            </div>
+          );
+        })}
+      </ul>
+    );
   };
   return (
     <>
       <input
         type="text"
-        className="searchBar"
         placeholder="Search Hotels..."
+        className="searchBar"
         onChange={handleChange}
       />
     </>

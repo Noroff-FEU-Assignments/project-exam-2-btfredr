@@ -6,8 +6,21 @@
   margin-right: auto;
   margin-bottom: 2em;
   margin-top: 2em;
-  width: 50%;
+  width: 100%;
   padding: 0.4em;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: whitesmoke;
+    justify-content: center;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .searchBar::placeholder {

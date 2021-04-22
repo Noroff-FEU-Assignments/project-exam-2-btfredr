@@ -11,6 +11,8 @@ const Hotels = () => {
   const [hotels, setHotels] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const ProgLang = ["Java", "Javascript", "Python", "Node", "React"];
+
   useEffect(() => {
     const fetchHotels = async () => {
       const result = await axios(
@@ -23,12 +25,13 @@ const Hotels = () => {
     };
     fetchHotels();
   }, []);
+
   return (
     <>
       <Navigation />
       <div className="container">
         <Heading title="Available listings" />
-        <SearchBar options={hotels.name} />
+        <SearchBar lang={ProgLang} />
         <ContentGrid isLoading={isLoading} hotels={hotels} />
       </div>
       <Footer />
