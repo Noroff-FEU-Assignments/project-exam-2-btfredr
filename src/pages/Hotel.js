@@ -59,7 +59,7 @@ const Hotel = () => {
       <div className="container">
         <Heading title={hotel.name} />
         <div className="imageContainer">
-          <img src={hotel.image_url} />
+          <img src={hotel.image_url} alt={hotel.name} />
         </div>
         <div>
           <Paragraph content={hotel.description} />

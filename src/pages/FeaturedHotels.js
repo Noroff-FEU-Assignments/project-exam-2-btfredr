@@ -1,10 +1,7 @@
-import Navigation from "../components/Navigation";
-import Heading from "../components/Heading";
-import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import ContentGrid from "../components/content/ContentGrid";
+import FeaturedGrid from "../components/content/FeaturedGrid";
 
 const FeaturedHotels = () => {
   const [hotels, setHotels] = useState([]);
@@ -22,7 +19,13 @@ const FeaturedHotels = () => {
     };
     fetchHotels();
   }, []);
-  return <div className="container"></div>;
+  return (
+    <>
+      <div className="container">
+        <FeaturedGrid isLoading={isLoading} hotels={hotels} />
+      </div>
+    </>
+  );
 };
 
 export default FeaturedHotels;

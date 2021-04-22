@@ -4,6 +4,11 @@ import Paragraph from "../components/Paragraph";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+import FeaturedHotels from "./FeaturedHotels";
+
 const Home = () => {
   return (
     <>
@@ -30,6 +35,7 @@ const Home = () => {
           <div className="home__title2">
             <Heading title="Featured Rooms" />
             <span className="home__bar"></span>
+            <FeaturedHotels />
           </div>
         </div>
       </div>
