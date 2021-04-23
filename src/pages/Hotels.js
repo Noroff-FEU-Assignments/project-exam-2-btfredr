@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import ContentGrid from "../components/content/ContentGrid";
-import SearchBar from "../components/SearchBar";
 
 const Hotels = () => {
   const [hotels, setHotels] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [q, setQ] = useState("");
 
   useEffect(() => {
     const fetchHotels = async () => {
@@ -24,13 +25,22 @@ const Hotels = () => {
     fetchHotels();
   }, []);
 
+  const search = (hotels) => {
+    return hotels.filter((hotel) => hotel.name.toLowerCase().indexOf(q) > -1);
+  };
   return (
     <>
       <Navigation />
       <div className="container">
         <Heading title="Available listings" />
-        <SearchBar />
-        <ContentGrid isLoading={isLoading} hotels={hotels} />
+        <input
+          type="text"
+          placeholder="Search Hotels..."
+          className="searchBar"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+        />
+        <ContentGrid isLoading={isLoading} hotels={search(hotels)} />
       </div>
       <Footer />
     </>

@@ -21,9 +21,7 @@ const FeaturedHotels = () => {
   }, []);
   return (
     <>
-      <div className="container">
-        <FeaturedGrid isLoading={isLoading} hotels={hotels} />
-      </div>
+      <FeaturedGrid isLoading={isLoading} hotels={hotels} />
     </>
   );
 };

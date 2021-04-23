@@ -20,9 +20,10 @@ const Navigation = () => {
 
   return (
     <Navbar className="nav" bg="light" variant="light" expand="lg">
-      <Navbar.Brand href="/" className="nav__logo">
+      <Link to="/" className="nav__logo">
         Holidaze
-      </Navbar.Brand>
+      </Link>
+
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="nav__icon" id="basic-navbar-nav">
         <Nav className="mr-auto">

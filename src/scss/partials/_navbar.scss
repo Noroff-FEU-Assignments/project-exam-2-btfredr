@@ -4,10 +4,15 @@
   width: 100%;
   font-weight: bold;
   z-index: 999;
+  position: sticky;
 
   &__logo {
     color: #d00000 !important;
     font-size: 2em;
+  }
+
+  &__logo:hover {
+    text-decoration: none;
   }
 
   &__link {

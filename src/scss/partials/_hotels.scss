@@ -2,6 +2,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -13,8 +16,10 @@
 
 .listing {
   cursor: pointer;
-  border-radius: 0 0 5px 5px;
   margin: 0.5em;
+  background-color: white;
+  color: black;
+  border-radius: 5px 5px 5px 5px;
   box-shadow: 10px 10px 25px -1px rgba(0, 0, 0, 0.11);
 
   &__content {

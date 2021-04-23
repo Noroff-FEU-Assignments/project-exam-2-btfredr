@@ -4,9 +4,6 @@ import Paragraph from "../components/Paragraph";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-import axios from "axios";
-import { useState, useEffect } from "react";
-
 import FeaturedHotels from "./FeaturedHotels";
 
 const Home = () => {
@@ -25,17 +22,19 @@ const Home = () => {
             </div>
 
             <div>
-              <Link to="/hotels" className="home__btn">
-                View Hotels
-              </Link>
+              <a href="#featured" className="home__btn">
+                View Featured Hotels
+              </a>
             </div>
           </div>
         </div>
-        <div className="home__featured">
+        <div className="home__featured" id="featured">
           <div className="home__title2">
             <Heading title="Featured Rooms" />
             <span className="home__bar"></span>
-            <FeaturedHotels />
+            <div className="container-lg">
+              <FeaturedHotels />
+            </div>
           </div>
         </div>
       </div>

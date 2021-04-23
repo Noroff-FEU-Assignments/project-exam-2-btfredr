@@ -20,6 +20,19 @@
     text-align: center;
   }
 
+  &__container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5em;
+  }
+
+  @media (max-width: 800px) {
+    &__container {
+      margin-bottom: 5em;
+    }
+  }
+
   &__box {
     background-color: rgba(37, 38, 39, 0.9);
     color: white;

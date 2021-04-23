@@ -33,6 +33,11 @@ code {
   min-height: 100vh;
 }
 
+.container-lg {
+  margin-top: 3.5em;
+  padding: 1em;
+}
+
 .heading {
   font-size: 3em;
 }
@@ -40,6 +45,10 @@ code {
 @media (max-width: 768px) {
   .heading {
     font-size: 2em;
+  }
+
+  .container-lg {
+    margin-bottom: 5em;
   }
 }
 
@@ -50,8 +59,4 @@ code {
   img {
     width: 100%;
   }
-}
-
-.nameList {
-  background-color: red;
 }
