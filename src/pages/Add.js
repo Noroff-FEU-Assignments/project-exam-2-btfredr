@@ -110,19 +110,6 @@ const Add = () => {
             </div>
 
             <div>
-              <label>Slug</label>
-              <input
-                name="slug"
-                placeholder="Slug"
-                ref={register}
-                type="text"
-              />
-              {errors.slug && (
-                <p className="form__error">{errors.slug.message}</p>
-              )}
-            </div>
-
-            <div>
               <label>Capacity</label>
               <input
                 name="capacity"

@@ -62,6 +62,7 @@ const Hotel = () => {
           <img src={hotel.image_url} alt={hotel.name} />
         </div>
         <div>
+          <h2>{hotel.Heading}</h2>
           <Paragraph content={hotel.description} />
         </div>
       </div>

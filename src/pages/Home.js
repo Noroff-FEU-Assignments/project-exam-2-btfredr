@@ -1,7 +1,6 @@
 import Navigation from "../components/Navigation";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
-import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 import FeaturedHotels from "./FeaturedHotels";
