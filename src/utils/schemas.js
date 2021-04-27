@@ -27,5 +27,5 @@ export const productSchema = yup.object().shape({
     .number()
     .required("Please enter a value")
     .min(0, "Must be greater than zero"),
-  slug: yup.string().required("Please enter an ID"),
+  Heading: yup.string().required("Please enter a heading"),
 });

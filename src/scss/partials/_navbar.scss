@@ -4,7 +4,8 @@
   width: 100%;
   font-weight: bold;
   z-index: 999;
-  position: sticky;
+  position: fixed !important;
+  top: 0;
 
   &__logo {
     color: #d00000 !important;

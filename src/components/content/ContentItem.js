@@ -7,7 +7,9 @@ const ContentItem = ({ hotel }) => {
           <a key={hotel.slug} href={`/hotel/${hotel.id}`}>
             {hotel.name}
           </a>
-          <p>{hotel.slug}</p>
+          <p>
+            <strong>{hotel.price} NOK</strong>
+          </p>
         </div>
       </div>
     </>

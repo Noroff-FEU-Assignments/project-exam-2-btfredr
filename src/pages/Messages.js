@@ -12,7 +12,7 @@ const Messages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       const result = await axios(
-        "https://ancient-beach-84390.herokuapp.com/messages"
+        "https://ancient-beach-84390.herokuapp.com/contacts"
       );
 
       setMessages(result.data);

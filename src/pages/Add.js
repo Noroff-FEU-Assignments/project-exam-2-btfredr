@@ -85,6 +85,18 @@ const Add = () => {
               )}
             </div>
             <div>
+              <label>Heading</label>
+              <input
+                name="Heading"
+                placeholder="Heading"
+                ref={register}
+                type="text"
+              />
+              {errors.Heading && (
+                <p className="form__error">{errors.Heading.message}</p>
+              )}
+            </div>
+            <div>
               <label>Description</label>
               <textarea
                 name="description"
@@ -130,9 +142,6 @@ const Add = () => {
                 ref={register}
                 type="checkbox"
               />
-              {errors.featured && (
-                <p className="form__error">{errors.featured.message}</p>
-              )}
             </div>
 
             <button type="submit" className="form__btn">

@@ -3,29 +3,57 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { contactSchema } from "../utils/schemas";
+import { BASE_URL } from "../utils/constants";
+
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import useAxios from "../utils/useAxios";
 
 const Contact = () => {
-  const contactSchema = yup.object().shape({
-    firstName: yup.string().required("Please enter your first name"),
-    lastName: yup.string().required("Please enter your last name"),
-    email: yup
-      .string()
-      .required("Please enter an email address")
-      .email("Please enter a valid email address"),
-    message: yup
-      .string()
-      .required("Please enter your message")
-      .min(10, "Message must be more than 10 characters"),
-  });
+  const [message, setMessage] = useState(null);
+  const { id } = useParams();
+  const http = useAxios();
+
+  const messagePath = BASE_URL + "/contacts";
+
+  const [submitting, setSubmitting] = useState(false);
+  const [postError, setPostError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(contactSchema),
   });
 
-  function onSubmit(data) {
+  const onSubmit = async (data) => {
+    setSubmitting(true);
+    setPostError(null);
     console.log(data);
-  }
+    try {
+      const response = await http.post(messagePath, data);
+      console.log(response);
+      setMessage(response.data);
+      setSuccess(true);
+    } catch (error) {
+      console.log("error", error);
+      setPostError(error.toString());
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  useEffect(() => {
+    const getMessage = async () => {
+      try {
+        const response = await http.get(`${messagePath}/${id}`);
+        console.log(response);
+        setMessage(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMessage();
+  }, [id]);
 
   console.log(errors);
   return (
@@ -33,8 +61,12 @@ const Contact = () => {
       <Navigation />
       <div className="container">
         <Heading title="Want to get in contact with us?" />
-
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        {postError && <p>{postError}</p>}
+        <form
+          className="form"
+          onSubmit={handleSubmit(onSubmit)}
+          disabled={submitting}
+        >
           <label>First Name</label>
           <input
             type="string"
@@ -78,8 +110,13 @@ const Contact = () => {
             <span className="form__error">{errors.message.message}</span>
           )}
 
-          <button className="form__btn">Send</button>
+          <button type="submit" className="form__btn">
+            {submitting ? "Sending ..." : "Send"}
+          </button>
         </form>
+        {success ? (
+          <p>{message.firstName}, your message was submitted!</p>
+        ) : null}
       </div>
       <Footer />
     </>
