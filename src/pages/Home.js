@@ -27,13 +27,14 @@ const Home = () => {
             </div>
           </div>
         </div>
+
         <div className="home__featured" id="featured">
           <div className="home__title2">
             <Heading title="Featured Rooms" />
             <span className="home__bar"></span>
-            <div className="container-lg">
-              <FeaturedHotels />
-            </div>
+          </div>
+          <div className="home__featuredItems">
+            <FeaturedHotels />
           </div>
         </div>
       </div>

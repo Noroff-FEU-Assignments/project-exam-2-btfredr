@@ -33,10 +33,6 @@ code {
   min-height: 100vh;
 }
 
-.container-lg {
-  margin-top: 4em;
-}
-
 .heading {
   font-size: 3em;
 }
@@ -44,10 +40,6 @@ code {
 @media (max-width: 768px) {
   .heading {
     font-size: 2em;
-  }
-
-  .container-lg {
-    margin-bottom: 5em;
   }
 }
 

@@ -6,20 +6,45 @@
   margin-right: auto;
   margin-bottom: 2em;
   margin-top: 2em;
-  width: 65%;
+  width: 100%;
   padding: 0.4em;
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: whitesmoke;
-    justify-content: center;
+  &__dropdown {
+    position: relative;
+    color: #333;
   }
 
-  &__item {
-    text-decoration: none;
-    color: black;
+  &__options {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    max-height: 25vh;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 998;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__options.open {
+    display: block;
+  }
+
+  &__option {
+    box-sizing: border-box;
+    color: rgba(51, 51, 51, 0.8);
+    cursor: pointer;
+    display: block;
+    padding: 1em;
+  }
+
+  &__option.selected,
+  &__option:hover {
+    background-color: #f2f9fc;
+    color: #333;
   }
 }
 

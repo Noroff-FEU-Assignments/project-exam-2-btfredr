@@ -18,6 +18,13 @@
     height: 100vh;
     color: white;
     text-align: center;
+    padding-bottom: 5em;
+    padding-top: 3.5em;
+  }
+
+  &__featuredItems {
+    padding: 1em;
+    text-align: left;
   }
 
   &__container {

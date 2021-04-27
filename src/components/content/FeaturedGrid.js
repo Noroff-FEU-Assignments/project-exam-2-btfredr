@@ -5,9 +5,9 @@ const FeaturedGrid = ({ hotels, isLoading }) => {
   return isLoading ? (
     <h1>Please wait... Content is loading</h1>
   ) : (
-    <section className="listings">
+    <section className="featuredListings">
       {featuredHotel.map((hotel) => (
-        <FeaturedItem key={hotel.slug} hotel={hotel}></FeaturedItem>
+        <FeaturedItem key={hotel.id} hotel={hotel}></FeaturedItem>
       ))}
     </section>
   );

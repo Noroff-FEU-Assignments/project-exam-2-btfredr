@@ -6,7 +6,7 @@ const ContentGrid = ({ messages, isLoading }) => {
   ) : (
     <section className="listings">
       {messages.map((message) => (
-        <MessageItem key={message.firstName} message={message}></MessageItem>
+        <MessageItem key={message.id} message={message}></MessageItem>
       ))}
     </section>
   );

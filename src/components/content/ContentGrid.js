@@ -6,7 +6,7 @@ const ContentGrid = ({ hotels, isLoading }) => {
   ) : (
     <section className="listings">
       {hotels.map((hotel) => (
-        <ContentItem key={hotel.slug} hotel={hotel}></ContentItem>
+        <ContentItem key={hotel.id} hotel={hotel}></ContentItem>
       ))}
     </section>
   );
