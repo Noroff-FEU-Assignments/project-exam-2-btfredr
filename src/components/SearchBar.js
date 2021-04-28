@@ -16,8 +16,8 @@ const SearchBar = ({ hotels, value, onChange }) => {
   };
 
   function filter(hotels) {
-    return hotels.filter(
-      (hotel) => hotel.name.toLowerCase().indexOf(query.toLowerCase()) > -1
+    return hotels.filter((hotel) =>
+      hotel.name.toLowerCase().startsWith(query.toLowerCase())
     );
   }
 
