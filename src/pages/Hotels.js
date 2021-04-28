@@ -34,12 +34,9 @@ const Hotels = () => {
       <div className="container">
         <Heading title="Available listings" />
         <SearchBar
-          options={hotels}
-          prompt="Search Hotels..."
+          hotels={hotels}
           value={value}
           onChange={(val) => setValue(val)}
-          id="id"
-          label="name"
         />
         <ContentGrid isLoading={isLoading} hotels={hotels} />
       </div>

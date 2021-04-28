@@ -6,16 +6,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { contactSchema } from "../utils/schemas";
 import { BASE_URL } from "../utils/constants";
 
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import useAxios from "../utils/useAxios";
+import { useState } from "react";
+import axios from "axios";
 
 const Contact = () => {
-  const [message, setMessage] = useState(null);
-  const { id } = useParams();
-  const http = useAxios();
+  const [hotel, setHotel] = useState(null);
 
-  const messagePath = BASE_URL + "/contacts";
+  const productPath = BASE_URL + "/contacts/";
 
   const [submitting, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
@@ -30,9 +27,9 @@ const Contact = () => {
     setPostError(null);
     console.log(data);
     try {
-      const response = await http.post(messagePath, data);
+      const response = await axios.post(productPath, data);
       console.log(response);
-      setMessage(response.data);
+      setHotel(response.data);
       setSuccess(true);
     } catch (error) {
       console.log("error", error);
@@ -42,20 +39,6 @@ const Contact = () => {
     }
   };
 
-  useEffect(() => {
-    const getMessage = async () => {
-      try {
-        const response = await http.get(`${messagePath}/${id}`);
-        console.log(response);
-        setMessage(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getMessage();
-  }, [id]);
-
-  console.log(errors);
   return (
     <>
       <Navigation />
@@ -109,14 +92,15 @@ const Contact = () => {
           {errors.message && (
             <span className="form__error">{errors.message.message}</span>
           )}
-
+          {success ? (
+            <p className="form__success">
+              Your message was submitted! Thank you for your time.
+            </p>
+          ) : null}
           <button type="submit" className="form__btn">
             {submitting ? "Sending ..." : "Send"}
           </button>
         </form>
-        {success ? (
-          <p>{message.firstName}, your message was submitted!</p>
-        ) : null}
       </div>
       <Footer />
     </>

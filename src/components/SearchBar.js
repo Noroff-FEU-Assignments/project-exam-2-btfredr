@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const SearchBar = ({ options, prompt, value, onChange, label, id }) => {
+const SearchBar = ({ hotels, value, onChange }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const ref = useRef(null);
@@ -15,9 +15,9 @@ const SearchBar = ({ options, prompt, value, onChange, label, id }) => {
     setOpen(e && e.target === ref.current);
   };
 
-  function filter(options) {
-    return options.filter(
-      (option) => option[label].toLowerCase().indexOf(query.toLowerCase()) > -1
+  function filter(hotels) {
+    return hotels.filter(
+      (hotel) => hotel.name.toLowerCase().indexOf(query.toLowerCase()) > -1
     );
   }
 
@@ -32,7 +32,7 @@ const SearchBar = ({ options, prompt, value, onChange, label, id }) => {
             className="searchBar"
             type="text"
             ref={ref}
-            placeholder={prompt}
+            placeholder="Search Hotels..."
             onChange={(e) => {
               setQuery(e.target.value);
               onChange(null);
@@ -42,20 +42,20 @@ const SearchBar = ({ options, prompt, value, onChange, label, id }) => {
         </div>
       </div>
       <div className={`searchBar__options ${open ? "open" : null}`}>
-        {filter(options).map((option) => (
+        {filter(hotels).map((hotel) => (
           <div
-            key={option[id]}
+            key={hotel.id}
             className={`searchBar__option ${
-              value === option ? "selected" : null
+              value === hotel ? "selected" : null
             }`}
             onClick={() => {
               setQuery("");
-              onChange(option);
+              onChange(hotel);
               setOpen(false);
             }}
           >
-            <Link key={option[id]} to={`/hotel/${option[id]}`}>
-              {option[label]}
+            <Link key={hotel.id} to={`/hotel/${hotel.id}`}>
+              {hotel.name}
             </Link>
           </div>
         ))}
