@@ -1,8 +1,9 @@
 import ContentItem from "./ContentItem";
+import Spinner from "../../assets/Spinner.gif";
 
 const ContentGrid = ({ hotels, isLoading }) => {
   return isLoading ? (
-    <h1>Please wait... Content is loading</h1>
+    <img src={Spinner} alt="Loading" className="loading" />
   ) : (
     <section className="listings">
       {hotels.map((hotel) => (

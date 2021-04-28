@@ -1,0 +1,13 @@
+.hotel {
+  display: flex;
+
+  &__left {
+    float: left;
+    width: 50%;
+  }
+
+  &__right {
+    float: right;
+    width: 50%;
+  }
+}

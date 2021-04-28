@@ -59,11 +59,16 @@ const Hotel = () => {
       <div className="container">
         <Heading title={hotel.name} />
         <div className="imageContainer">
-          <img src={hotel.image_url} alt={hotel.name} />
+          <div className="hotelImage">
+            <img src={hotel.image_url} alt={hotel.name} />
+          </div>
         </div>
-        <div>
-          <h2>{hotel.Heading}</h2>
-          <Paragraph content={hotel.description} />
+        <div className="hotel">
+          <div className="hotel__left">
+            <h2>{hotel.Heading}</h2>
+            <Paragraph content={hotel.description} />
+          </div>
+          <div className="hotel__right"></div>
         </div>
       </div>
       <Footer />

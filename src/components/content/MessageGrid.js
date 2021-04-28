@@ -1,8 +1,9 @@
 import MessageItem from "./MessageItem";
+import Spinner from "../../assets/Spinner.gif";
 
 const ContentGrid = ({ messages, isLoading }) => {
   return isLoading ? (
-    <h1>Please wait... Content is loading</h1>
+    <img src={Spinner} alt="Loading" className="loading" />
   ) : (
     <section className="listings">
       {messages.map((message) => (

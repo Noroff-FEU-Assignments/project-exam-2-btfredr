@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FeaturedItem = ({ hotel }) => {
   return (
     <>
@@ -10,6 +12,9 @@ const FeaturedItem = ({ hotel }) => {
           <p>
             <strong>{hotel.price} NOK</strong>
           </p>
+          <Link to={`/hotel/${hotel.id}`} className="listing__btn">
+            View More
+          </Link>
         </div>
       </div>
     </>
