@@ -4,7 +4,7 @@ import SpinnerWhite from "../../assets/SpinnerWhite.gif";
 const FeaturedGrid = ({ hotels, isLoading }) => {
   const featuredHotel = hotels.filter((hotel) => hotel.featured);
   return isLoading ? (
-    <img src={SpinnerWhite} alt="Loading" className="loading" />
+    <h1>Please wait... Content is loading</h1>
   ) : (
     <section className="featuredListings">
       {featuredHotel.map((hotel) => (
