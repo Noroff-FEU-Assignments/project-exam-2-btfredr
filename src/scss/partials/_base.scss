@@ -34,10 +34,11 @@ code {
 }
 
 .loading {
-  top: 30%;
-  left: 40%;
-  position: fixed;
-  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
 }
 
 .heading {
