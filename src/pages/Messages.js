@@ -1,5 +1,6 @@
 import Heading from "../components/Heading";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -28,6 +29,7 @@ const Messages = () => {
         <Heading title="Messages" />
         <MessageGrid isLoading={isLoading} messages={messages} />
       </div>
+      <Footer />
     </>
   );
 };

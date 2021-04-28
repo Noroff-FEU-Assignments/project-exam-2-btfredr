@@ -45,53 +45,51 @@ const Contact = () => {
       <div className="container">
         <Heading title="Want to get in contact with us?" />
         {postError && <p>{postError}</p>}
-        <form
-          className="form"
-          onSubmit={handleSubmit(onSubmit)}
-          disabled={submitting}
-        >
-          <label>First Name</label>
-          <input
-            type="string"
-            name="firstName"
-            ref={register}
-            placeholder="Enter your first name..."
-          />
-          {errors.firstName && (
-            <span className="form__error">{errors.firstName.message}</span>
-          )}
-          <label>Last Name</label>
-          <input
-            type="string"
-            name="lastName"
-            ref={register}
-            placeholder="Enter your last name..."
-          />
-          {errors.lastName && (
-            <span className="form__error">{errors.lastName.message}</span>
-          )}
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+          <fieldset disabled={submitting}>
+            <label>First Name</label>
+            <input
+              type="string"
+              name="firstName"
+              ref={register}
+              placeholder="Enter your first name..."
+            />
+            {errors.firstName && (
+              <span className="form__error">{errors.firstName.message}</span>
+            )}
+            <label>Last Name</label>
+            <input
+              type="string"
+              name="lastName"
+              ref={register}
+              placeholder="Enter your last name..."
+            />
+            {errors.lastName && (
+              <span className="form__error">{errors.lastName.message}</span>
+            )}
 
-          <label>Email</label>
-          <input
-            type="string"
-            name="email"
-            ref={register}
-            placeholder="Enter your email..."
-          />
-          {errors.email && (
-            <span className="form__error">{errors.email.message}</span>
-          )}
+            <label>Email</label>
+            <input
+              type="string"
+              name="email"
+              ref={register}
+              placeholder="Enter your email..."
+            />
+            {errors.email && (
+              <span className="form__error">{errors.email.message}</span>
+            )}
 
-          <label>Message</label>
-          <textarea
-            type="string"
-            name="message"
-            ref={register}
-            placeholder="Enter your message..."
-          />
-          {errors.message && (
-            <span className="form__error">{errors.message.message}</span>
-          )}
+            <label>Message</label>
+            <textarea
+              type="string"
+              name="message"
+              ref={register}
+              placeholder="Enter your message..."
+            />
+            {errors.message && (
+              <span className="form__error">{errors.message.message}</span>
+            )}
+          </fieldset>
           {success ? (
             <p className="form__success">
               Your message was submitted! Thank you for your time.

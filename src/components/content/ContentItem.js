@@ -10,9 +10,11 @@ const ContentItem = ({ hotel }) => {
           <p>
             <strong>{hotel.price} NOK</strong>
           </p>
-          <Link to={`/hotel/${hotel.id}`} className="listing__btn">
-            View More
-          </Link>
+          <div className="listing__btnContainer">
+            <Link to={`/hotel/${hotel.id}`} className="listing__btn">
+              View More
+            </Link>
+          </div>
         </div>
       </div>
     </>

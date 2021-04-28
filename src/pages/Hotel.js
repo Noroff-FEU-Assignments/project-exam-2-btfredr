@@ -6,6 +6,8 @@ import Paragraph from "../components/Paragraph";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
+import Spinner from "../assets/Spinner.gif";
+
 const Hotel = () => {
   const [hotel, setHotel] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -46,7 +48,7 @@ const Hotel = () => {
   );
 
   if (isLoading) {
-    return <h1>Loading Hotel...</h1>;
+    return <img src={Spinner} alt="Loading" className="loading" />;
   }
 
   if (error) {
