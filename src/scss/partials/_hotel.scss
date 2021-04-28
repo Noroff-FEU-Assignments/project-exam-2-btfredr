@@ -4,10 +4,21 @@
   &__left {
     float: left;
     width: 50%;
+    padding: 1.5em;
   }
 
   &__right {
     float: right;
     width: 50%;
+    padding: 1.5em;
   }
+}
+
+.bookingForm {
+  box-shadow: 10px 10px 25px -1px rgba(0, 0, 0, 0.11);
+  height: 100%;
+  background-color: #fffffc;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
 }

@@ -1,0 +1,19 @@
+.messages {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.message {
+  margin: 0.5em;
+  background-color: white;
+  color: black;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 10px 10px 25px -1px rgba(0, 0, 0, 0.11);
+
+  &__content {
+    padding: 1em;
+  }
+}

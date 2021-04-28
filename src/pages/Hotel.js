@@ -68,7 +68,21 @@ const Hotel = () => {
             <h2>{hotel.Heading}</h2>
             <Paragraph content={hotel.description} />
           </div>
-          <div className="hotel__right"></div>
+          <div className="hotel__right">
+            <div className="bookingForm">
+              <label>Check in:</label>
+              <input type="date" />
+              <label>Check out:</label>
+              <input type="date" />
+              <button className="form__btn">Book</button>
+              <label>Price</label>
+              <p>{hotel.price} NOK x 7 nights</p>
+              <label>Fees</label>
+              <p>Cleaning and service fees 250 kr</p>
+              <label>Total</label>
+              <p>Total: 3043 kr</p>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
