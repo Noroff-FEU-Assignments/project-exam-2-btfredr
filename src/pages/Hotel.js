@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import { enquirySchema } from "../utils/schemas";
 
 import Spinner from "../assets/Spinner.gif";
 
@@ -13,13 +17,34 @@ const Hotel = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  let history = useHistory();
+  const [submitting, setSubmitting] = useState(false);
+  const [postError, setPostError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const enquiryPath = BASE_URL + "/enquiries";
+
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(enquirySchema),
+  });
+
+  const onSubmit = async (data) => {
+    setSubmitting(true);
+    setPostError(null);
+    console.log(data);
+    try {
+      const response = await axios.post(enquiryPath, data);
+      console.log(response);
+      setHotel(response.data);
+      setSuccess(true);
+    } catch (error) {
+      console.log("error", error);
+      setPostError(error.toString());
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const { id } = useParams();
-
-  if (!id) {
-    history.push("/");
-  }
 
   const url = BASE_URL + "/hotels/" + id;
 
@@ -71,19 +96,75 @@ const Hotel = () => {
             <Paragraph content={hotel.description} />
           </div>
           <div className="hotel__right">
-            <div className="bookingForm">
-              <label>Check in:</label>
-              <input type="date" />
-              <label>Check out:</label>
-              <input type="date" />
-              <button className="form__btn">Book</button>
-              <label>Price</label>
-              <p>{hotel.price} NOK x 7 nights</p>
-              <label>Fees</label>
-              <p>Cleaning and service fees 250 kr</p>
-              <label>Total</label>
-              <p>Total: 3043 kr</p>
-            </div>
+            <form className="bookingForm" onSubmit={handleSubmit(onSubmit)}>
+              {postError && <p>{postError}</p>}
+              <fieldset disabled={submitting}>
+                <label>Name</label>
+                <input
+                  type="string"
+                  name="Name"
+                  ref={register}
+                  placeholder="Enter your full name..."
+                />
+                {errors.firstName && (
+                  <span className="form__error">{errors.Name.message}</span>
+                )}
+
+                <label>Email</label>
+                <input
+                  type="string"
+                  name="email"
+                  ref={register}
+                  placeholder="Enter your email..."
+                />
+                {errors.email && (
+                  <span className="form__error">{errors.email.message}</span>
+                )}
+                <div className="hotel__dates">
+                  <div className="hotel__dateContainer">
+                    <label>Check in</label>
+                    <input type="date" name="startDate" ref={register} />
+                    {errors.startDate && (
+                      <span className="form__error">
+                        {errors.startDate.message}
+                      </span>
+                    )}
+                  </div>
+                  <div className="hotel__dateContainer">
+                    <label>Check out</label>
+                    <input type="date" name="endDate" ref={register} />
+                    {errors.endDate && (
+                      <span className="form__error">
+                        {errors.endDate.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <select name="capacity" ref={register}>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+                {errors.capacity && (
+                  <span className="form__error">{errors.capacity.message}</span>
+                )}
+                {success ? (
+                  <p className="form__success">
+                    Your booking of {hotel.name} has been submitted! Thanks for
+                    your time.
+                  </p>
+                ) : null}
+                <button type="submit" className="form__btn">
+                  {submitting ? "Booking ..." : "Book"}
+                </button>
+                <label>Price</label>
+                <p>{hotel.price} NOK x 7 nights</p>
+                <label>Cleaning and service fees</label>
+
+                <label>Total</label>
+                <p>Total: 3043 kr</p>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>

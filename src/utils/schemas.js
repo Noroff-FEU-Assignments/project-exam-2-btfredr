@@ -29,3 +29,14 @@ export const productSchema = yup.object().shape({
     .min(0, "Must be greater than zero"),
   Heading: yup.string().required("Please enter a heading"),
 });
+
+export const enquirySchema = yup.object().shape({
+  Name: yup.string().required("Please enter your name"),
+  email: yup
+    .string()
+    .required("Please enter an email address")
+    .email("Please enter a valid email address"),
+  startDate: yup.date().required("Please enter a start date"),
+  endDate: yup.date().required("Please enter a end date"),
+  capacity: yup.number().required("Please select an option"),
+});
