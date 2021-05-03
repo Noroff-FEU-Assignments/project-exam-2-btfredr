@@ -27,18 +27,20 @@ const SearchBar = ({ hotels, value, onChange }) => {
         className="searchBar__control"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <div className="searchBar__selected-value">
-          <input
-            className="searchBar"
-            type="text"
-            ref={ref}
-            placeholder="Search Hotels..."
-            onChange={(e) => {
-              setQuery(e.target.value);
-              onChange(null);
-            }}
-            onClick={() => setOpen((prev) => !prev)}
-          />
+        <div className="searchBar">
+          <div className="searchBar__selected-value">
+            <input
+              className="searchBar__input"
+              type="text"
+              ref={ref}
+              placeholder="Search Hotels..."
+              onChange={(e) => {
+                setQuery(e.target.value);
+                onChange(null);
+              }}
+              onClick={() => setOpen((prev) => !prev)}
+            />
+          </div>
         </div>
       </div>
       <div className={`searchBar__options ${open ? "open" : null}`}>

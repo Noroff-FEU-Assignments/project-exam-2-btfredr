@@ -1,5 +1,4 @@
 .searchBar {
-  outline-width: 0;
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -8,18 +7,28 @@
   margin-top: 2em;
   width: 100%;
   padding: 0.5em;
-  border: 1px solid black;
+  border: 1px solid lightgrey;
+  border-radius: 999px;
 
   &__dropdown {
     position: relative;
     color: #333;
   }
 
+  &__selected-value {
+    width: 100%;
+    border: none;
+  }
+
+  &__input {
+    border: none;
+  }
+
   &__options {
     display: none;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 0 0 10px 10px;
+    border-radius: 20px 20px 10px 10px;
     border-top: none;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
     box-sizing: border-box;

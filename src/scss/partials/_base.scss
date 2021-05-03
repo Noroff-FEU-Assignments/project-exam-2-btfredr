@@ -45,9 +45,12 @@ code {
   font-size: 3em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .heading {
     font-size: 2em;
+  }
+  .container {
+    margin-top: 7em;
   }
 }
 

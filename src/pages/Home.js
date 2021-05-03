@@ -17,7 +17,7 @@ const Home = () => {
               <span className="home__bar"></span>
             </h1>
             <div className="home__text">
-              <Paragraph content="High quality rooms starting at 399 NOK" />
+              <Paragraph content="High quality rooms starting at 299 NOK" />
             </div>
 
             <div>
