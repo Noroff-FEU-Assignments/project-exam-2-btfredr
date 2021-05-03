@@ -3,13 +3,13 @@
 
   &__left {
     float: left;
-    width: 50%;
+    width: 45%;
     padding: 1.5em;
   }
 
   &__right {
     float: right;
-    width: 50%;
+    width: 55%;
     padding: 1.5em;
   }
   &__dates {
@@ -22,13 +22,28 @@
     margin-top: 1em;
     margin-bottom: 1em;
   }
+
+  &__dateContainer > input {
+    width: 90%;
+  }
+
+  @media (max-width: 984px) {
+    &__left,
+    &__right {
+      width: 100%;
+    }
+
+    &__dates {
+      display: block;
+    }
+    &__dateContainer > input {
+      width: 100%;
+    }
+  }
 }
 
-.bookingForm {
-  box-shadow: 10px 10px 25px -1px rgba(0, 0, 0, 0.11);
-  height: 100%;
-  background-color: #fffffc;
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
+@media (max-width: 768px) {
+  .hotel {
+    flex-direction: column;
+  }
 }

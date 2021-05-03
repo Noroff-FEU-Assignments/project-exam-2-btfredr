@@ -39,3 +39,14 @@
   color: red;
   font-weight: bold;
 }
+
+.bookingForm {
+  box-shadow: 10px 10px 25px -1px rgba(0, 0, 0, 0.11);
+  height: 100%;
+  background-color: #fffffc;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+

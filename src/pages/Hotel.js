@@ -98,72 +98,70 @@ const Hotel = () => {
           <div className="hotel__right">
             <form className="bookingForm" onSubmit={handleSubmit(onSubmit)}>
               {postError && <p>{postError}</p>}
-              <fieldset disabled={submitting}>
-                <label>Name</label>
-                <input
-                  type="string"
-                  name="Name"
-                  ref={register}
-                  placeholder="Enter your full name..."
-                />
-                {errors.firstName && (
-                  <span className="form__error">{errors.Name.message}</span>
-                )}
+              <label>Name</label>
+              <input
+                type="string"
+                name="Name"
+                ref={register}
+                placeholder="Enter your full name..."
+              />
+              {errors.Name && (
+                <span className="form__error">{errors.Name.message}</span>
+              )}
 
-                <label>Email</label>
-                <input
-                  type="string"
-                  name="email"
-                  ref={register}
-                  placeholder="Enter your email..."
-                />
-                {errors.email && (
-                  <span className="form__error">{errors.email.message}</span>
-                )}
-                <div className="hotel__dates">
-                  <div className="hotel__dateContainer">
-                    <label>Check in</label>
-                    <input type="date" name="startDate" ref={register} />
-                    {errors.startDate && (
-                      <span className="form__error">
-                        {errors.startDate.message}
-                      </span>
-                    )}
-                  </div>
-                  <div className="hotel__dateContainer">
-                    <label>Check out</label>
-                    <input type="date" name="endDate" ref={register} />
-                    {errors.endDate && (
-                      <span className="form__error">
-                        {errors.endDate.message}
-                      </span>
-                    )}
-                  </div>
+              <label>Email</label>
+              <input
+                type="string"
+                name="email"
+                ref={register}
+                placeholder="Enter your email..."
+              />
+              {errors.email && (
+                <span className="form__error">{errors.email.message}</span>
+              )}
+              <div className="hotel__dates">
+                <div className="hotel__dateContainer">
+                  <label>Check in</label>
+                  <input type="date" name="startDate" ref={register} />
+                  {errors.startDate && (
+                    <span className="form__error">
+                      {errors.startDate.message}
+                    </span>
+                  )}
                 </div>
-                <select name="capacity" ref={register}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-                {errors.capacity && (
-                  <span className="form__error">{errors.capacity.message}</span>
-                )}
-                {success ? (
-                  <p className="form__success">
-                    Your booking of {hotel.name} has been submitted! Thanks for
-                    your time.
-                  </p>
-                ) : null}
-                <button type="submit" className="form__btn">
-                  {submitting ? "Booking ..." : "Book"}
-                </button>
-                <label>Price</label>
-                <p>{hotel.price} NOK x 7 nights</p>
-                <label>Cleaning and service fees</label>
+                <div className="hotel__dateContainer">
+                  <label>Check out</label>
+                  <input type="date" name="endDate" ref={register} />
+                  {errors.endDate && (
+                    <span className="form__error">
+                      {errors.endDate.message}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <label>Guests</label>
+              <select name="capacity" ref={register}>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+              {errors.capacity && (
+                <span className="form__error">{errors.capacity.message}</span>
+              )}
+              {success ? (
+                <p className="form__success">Your booking was confirmed</p>
+              ) : null}
+              <button type="submit" className="form__btn">
+                {submitting ? "Booking ..." : "Book"}
+              </button>
+              <label>Price</label>
+              <p>{hotel.price} NOK x 7 nights</p>
+              <label>Cleaning and service fees</label>
 
-                <label>Total</label>
-                <p>Total: 3043 kr</p>
-              </fieldset>
+              <label>Total</label>
+              <p>
+                Total: ({hotel.startDate} + {hotel.endDate} * {hotel.price})
+              </p>
             </form>
           </div>
         </div>
