@@ -34,7 +34,6 @@ const Hotel = () => {
     try {
       const response = await axios.post(enquiryPath, data);
       console.log(response);
-      setHotel(response.data);
       setSuccess(true);
     } catch (error) {
       console.log("error", error);
