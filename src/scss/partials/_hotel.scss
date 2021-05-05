@@ -27,7 +27,7 @@
     width: 90%;
   }
 
-  @media (max-width: 984px) {
+  @media (max-width: 990px) {
     &__left,
     &__right {
       width: 100%;
@@ -42,7 +42,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .hotel {
     flex-direction: column;
   }

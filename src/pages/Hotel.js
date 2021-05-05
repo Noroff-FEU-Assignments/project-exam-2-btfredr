@@ -148,19 +148,17 @@ const Hotel = () => {
                 <span className="form__error">{errors.capacity.message}</span>
               )}
               {success ? (
-                <p className="form__success">Your booking was confirmed</p>
+                <p className="form__success">Your booking was confirmed!</p>
               ) : null}
               <button type="submit" className="form__btn">
                 {submitting ? "Booking ..." : "Book"}
               </button>
               <label>Price</label>
-              <p>{hotel.price} NOK x 7 nights</p>
-              <label>Cleaning and service fees</label>
-
+              <p>{hotel.price} NOK</p>
+              <label>Cleaning and service fees:</label>
+              <p>249 NOK</p>
               <label>Total</label>
-              <p>
-                Total: ({hotel.startDate} + {hotel.endDate} * {hotel.price})
-              </p>
+              <p>Total: </p>
             </form>
           </div>
         </div>
