@@ -35,7 +35,13 @@ export const enquirySchema = yup.object().shape({
     .string()
     .required("Please enter an email address")
     .email("Please enter a valid email address"),
-  startDate: yup.date().required("Please enter a start date"),
-  endDate: yup.date().required("Please enter a end date"),
+  startDate: yup
+    .date("Input is not valid")
+    .min(new Date(Date.now() - 86400000), "Please enter a current date")
+    .required("Please enter a start date"),
+  endDate: yup
+    .date("Input is not valid")
+    .min(new Date(Date.now() - 86400000), "Please enter a current date")
+    .required("Please enter an end date"),
   capacity: yup.number().required("Please select an option"),
 });
