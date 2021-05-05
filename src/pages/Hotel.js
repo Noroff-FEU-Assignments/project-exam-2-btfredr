@@ -22,7 +22,6 @@ const Hotel = () => {
       async function fetchHotel() {
         try {
           const response = await fetch(url);
-          console.log(response);
 
           if (response.ok) {
             const json = await response.json();

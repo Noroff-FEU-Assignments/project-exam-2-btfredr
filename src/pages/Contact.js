@@ -10,9 +10,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Contact = () => {
-  const [hotel, setHotel] = useState(null);
-
-  const productPath = BASE_URL + "/contacts/";
+  const productPath = BASE_URL + "/contacts";
 
   const [submitting, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
@@ -27,12 +25,9 @@ const Contact = () => {
     setPostError(null);
     console.log(data);
     try {
-      const response = await axios.post(productPath, data);
-      console.log(response);
-      setHotel(response.data);
+      await axios.post(productPath, data);
       setSuccess(true);
     } catch (error) {
-      console.log("error", error);
       setPostError(error.toString());
     } finally {
       setSubmitting(false);
@@ -46,25 +41,15 @@ const Contact = () => {
         <Heading title="Want to get in contact with us?" />
         {postError && <p>{postError}</p>}
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
-          <label>First Name</label>
+          <label>Name</label>
           <input
             type="string"
-            name="firstName"
+            name="name"
             ref={register}
             placeholder="Enter your first name..."
           />
-          {errors.firstName && (
-            <span className="form__error">{errors.firstName.message}</span>
-          )}
-          <label>Last Name</label>
-          <input
-            type="string"
-            name="lastName"
-            ref={register}
-            placeholder="Enter your last name..."
-          />
-          {errors.lastName && (
-            <span className="form__error">{errors.lastName.message}</span>
+          {errors.name && (
+            <span className="form__error">{errors.name.message}</span>
           )}
 
           <label>Email</label>

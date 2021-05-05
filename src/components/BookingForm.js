@@ -39,12 +39,12 @@ const BookingForm = ({ hotel }) => {
         <label>Name</label>
         <input
           type="string"
-          name="Name"
+          name="name"
           ref={register}
           placeholder="Enter your full name..."
         />
-        {errors.Name && (
-          <span className="form__error">{errors.Name.message}</span>
+        {errors.name && (
+          <span className="form__error">{errors.name.message}</span>
         )}
 
         <label>Email</label>

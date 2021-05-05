@@ -1,7 +1,7 @@
 import { useParams, useHistory } from "react-router-dom";
 import useAxios from "../utils/useAxios";
 import { useState, useEffect } from "react";
-import { BASE_URL } from "../utils/constants";
+import { PRODUCT_PATH } from "../utils/constants";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { productSchema } from "../utils/schemas";
@@ -14,8 +14,6 @@ const Add = () => {
   const { id } = useParams();
   const http = useAxios();
   const history = useHistory();
-
-  const productPath = BASE_URL + "/hotels";
 
   const [submitting, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
@@ -30,7 +28,7 @@ const Add = () => {
     setPostError(null);
     console.log(data);
     try {
-      const response = await http.post(productPath, data);
+      const response = await http.post(PRODUCT_PATH, data);
       console.log(response);
       setHotel(response.data);
       setSuccess(true);
@@ -46,7 +44,7 @@ const Add = () => {
   useEffect(() => {
     const getHotel = async () => {
       try {
-        const response = await http.get(`${productPath}/${id}`);
+        const response = await http.get(`${PRODUCT_PATH}/${id}`);
         console.log(response);
         setHotel(response.data);
       } catch (error) {

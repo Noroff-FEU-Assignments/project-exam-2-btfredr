@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { CONTACT_PATH } from "../utils/constants";
 
 import MessageGrid from "../components/content/MessageGrid";
 
@@ -12,12 +13,9 @@ const Messages = () => {
 
   useEffect(() => {
     const fetchMessages = async () => {
-      const result = await axios(
-        "https://ancient-beach-84390.herokuapp.com/contacts"
-      );
+      const result = await axios(CONTACT_PATH);
 
       setMessages(result.data);
-      console.log(result.data);
       setIsLoading(false);
     };
     fetchMessages();

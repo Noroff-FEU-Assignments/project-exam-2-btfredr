@@ -6,8 +6,7 @@ export const loginSchema = yup.object().shape({
 });
 
 export const contactSchema = yup.object().shape({
-  firstName: yup.string().required("Please enter your first name"),
-  lastName: yup.string().required("Please enter your last name"),
+  name: yup.string().required("Please enter your name"),
   email: yup
     .string()
     .required("Please enter an email address")
@@ -31,7 +30,7 @@ export const productSchema = yup.object().shape({
 });
 
 export const enquirySchema = yup.object().shape({
-  Name: yup.string().required("Please enter your name"),
+  name: yup.string().required("Please enter your name"),
   email: yup
     .string()
     .required("Please enter an email address")

@@ -14,7 +14,6 @@ const FeaturedHotels = () => {
       );
 
       setHotels(result.data);
-      console.log(result.data);
       setIsLoading(false);
     };
     fetchHotels();

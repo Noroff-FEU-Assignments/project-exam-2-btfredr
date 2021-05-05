@@ -13,8 +13,6 @@ const Hotels = () => {
 
   const [value, setValue] = useState(null);
 
-  // const [q, setQ] = useState("");
-
   useEffect(() => {
     const fetchHotels = async () => {
       const result = await axios(
