@@ -1,15 +1,15 @@
+import Paragraph from "../Paragraph";
+
 const MessageItem = ({ message }) => {
   return (
     <div className="message">
       <div className="message__content">
         <label>Name:</label>
-        <p>
-          {message.firstName} {message.lastName}
-        </p>
+        <Paragraph content={message.name} />
         <label>Email:</label>
-        <p>{message.email}</p>
+        <Paragraph content={message.email} />
         <label>Message:</label>
-        <p>{message.message}</p>
+        <Paragraph content={message.message} />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ const EnquiryItem = ({ enquiry }) => {
     <div className="message">
       <div className="message__content">
         <label>Name:</label>
-        <p>{enquiry.Name}</p>
+        <p>{enquiry.name}</p>
         <label>Price:</label>
         <p>{enquiry.price}</p>
         <label>Email:</label>

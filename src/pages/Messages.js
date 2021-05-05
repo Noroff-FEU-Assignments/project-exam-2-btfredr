@@ -20,6 +20,7 @@ const Messages = () => {
     };
     fetchMessages();
   }, []);
+
   return (
     <>
       <Navigation />
