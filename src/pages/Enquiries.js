@@ -17,7 +17,6 @@ const Enquiries = () => {
       );
 
       setEnquiries(result.data);
-      console.log(result.data);
       setIsLoading(false);
     };
     fetchEnquiries();

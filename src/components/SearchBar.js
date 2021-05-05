@@ -45,7 +45,8 @@ const SearchBar = ({ hotels, value, onChange }) => {
       </div>
       <div className={`searchBar__options ${open ? "open" : null}`}>
         {filter(hotels).map((hotel) => (
-          <div
+          <Link
+            to={`/hotel/${hotel.id}`}
             key={hotel.id}
             className={`searchBar__option ${
               value === hotel ? "selected" : null
@@ -56,10 +57,8 @@ const SearchBar = ({ hotels, value, onChange }) => {
               setOpen(false);
             }}
           >
-            <Link key={hotel.id} to={`/hotel/${hotel.id}`}>
-              {hotel.name}
-            </Link>
-          </div>
+            {hotel.name}
+          </Link>
         ))}
       </div>
     </div>
