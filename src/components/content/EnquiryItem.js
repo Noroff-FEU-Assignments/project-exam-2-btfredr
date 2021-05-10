@@ -5,7 +5,7 @@ const EnquiryItem = ({ enquiry }) => {
         <label>Name:</label>
         <p>{enquiry.name}</p>
         <label>Price:</label>
-        <p>{enquiry.price}</p>
+        <p>{enquiry.price} NOK</p>
         <label>Email:</label>
         <p>{enquiry.email}</p>
         <label>Start Date:</label>

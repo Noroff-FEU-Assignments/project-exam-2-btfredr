@@ -25,6 +25,17 @@
     color: #d00000 !important;
   }
 
+  &__active {
+    color: #d00000 !important;
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+
+  &__active:hover {
+    text-decoration: none;
+    color: #d00000;
+  }
+
   &__login {
     color: white !important;
     background-color: #d00000;

@@ -1,7 +1,7 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import AuthContext from "../context/AuthContext";
 
@@ -20,41 +20,71 @@ const Navigation = () => {
 
   return (
     <Navbar className="nav" bg="light" variant="light" expand="lg">
-      <Link to="/" className="nav__logo">
+      <NavLink to="/" className="nav__logo">
         Holidaze
-      </Link>
+      </NavLink>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="nav__icon" id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Link to="/" className="nav__link">
+          <NavLink
+            exact
+            to="/"
+            className="nav__link"
+            activeClassName="nav__active"
+          >
             Home
-          </Link>
-          <Link to="/hotels" className="nav__link">
+          </NavLink>
+          <NavLink
+            exact
+            to="/hotels"
+            className="nav__link"
+            activeClassName="nav__active"
+          >
             Hotels
-          </Link>
-          <Link to="/contact" className="nav__link">
+          </NavLink>
+          <NavLink
+            exact
+            to="/contact"
+            className="nav__link"
+            activeClassName="nav__active"
+          >
             Contact
-          </Link>
+          </NavLink>
           {auth ? (
             <>
-              <Link to="/enquiries" className="nav__link">
+              <NavLink
+                exact
+                to="/enquiries"
+                className="nav__link"
+                activeClassName="nav__active"
+              >
                 Enquiries
-              </Link>
-              <Link to="/messages" className="nav__link">
+              </NavLink>
+              <NavLink
+                exact
+                to="/messages"
+                className="nav__link"
+                activeClassName="nav__active"
+              >
                 Messages
-              </Link>
-              <Link to="/add" className="nav__link">
+              </NavLink>
+              <NavLink
+                exact
+                to="/add"
+                className="nav__link"
+                activeClassName="nav__active"
+              >
                 Add
-              </Link>
-              <Link to="/" onClick={logout} className="nav__login">
+              </NavLink>
+              <NavLink to="/" onClick={logout} className="nav__login">
                 Log out
-              </Link>
+              </NavLink>
             </>
           ) : (
-            <Link to="/login" className="nav__login">
+            <NavLink to="/login" className="nav__login">
               Login
-            </Link>
+            </NavLink>
           )}
         </Nav>
       </Navbar.Collapse>
