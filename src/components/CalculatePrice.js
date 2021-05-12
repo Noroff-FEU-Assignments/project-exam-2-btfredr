@@ -11,8 +11,8 @@ const CalculatePrice = ({ hotel, startDate, endDate, register }) => {
   let total = days * hotel.price;
 
   return (
-    <p name="total" ref={register}>
-      {total ? total : hotel.price} NOK
+    <p>
+      <span></span> NOK
     </p>
   );
 };
