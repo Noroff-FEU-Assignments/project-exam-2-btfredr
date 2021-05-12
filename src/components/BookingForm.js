@@ -4,11 +4,15 @@ import { enquirySchema } from "../utils/schemas";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
+import CalculatePrice from "./CalculatePrice";
 
 const BookingForm = ({ hotel }) => {
   const [submitting, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
   const [success, setSuccess] = useState(null);
+
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const enquiryPath = BASE_URL + "/enquiries";
 
@@ -31,7 +35,6 @@ const BookingForm = ({ hotel }) => {
       setSubmitting(false);
     }
   };
-
   return (
     <form className="bookingForm" onSubmit={handleSubmit(onSubmit)}>
       {postError && <p>{postError}</p>}
@@ -60,14 +63,25 @@ const BookingForm = ({ hotel }) => {
         <div className="hotel__dates">
           <div className="hotel__dateContainer">
             <label>Check in</label>
-            <input type="date" name="startDate" ref={register} />
+            <input
+              onChange={(e) => setStartDate(e.target.value)}
+              type="date"
+              name="startDate"
+              ref={register}
+            />
             {errors.startDate && (
               <span className="form__error">{errors.startDate.message}</span>
             )}
           </div>
+
           <div className="hotel__dateContainer">
             <label>Check out</label>
-            <input type="date" name="endDate" ref={register} />
+            <input
+              onChange={(e) => setEndDate(e.target.value)}
+              type="date"
+              name="endDate"
+              ref={register}
+            />
             {errors.endDate && (
               <span className="form__error">{errors.endDate.message}</span>
             )}
@@ -90,10 +104,8 @@ const BookingForm = ({ hotel }) => {
         </button>
         <label>Price</label>
         <p>{hotel.price} NOK</p>
-        <label>Cleaning and service fees:</label>
-        <p>249 NOK</p>
         <label>Total</label>
-        <p>Total: </p>
+        <CalculatePrice hotel={hotel} startDate={startDate} endDate={endDate} />
       </fieldset>
     </form>
   );
