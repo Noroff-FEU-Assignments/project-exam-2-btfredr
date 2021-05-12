@@ -4,7 +4,7 @@ import { enquirySchema } from "../utils/schemas";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import CalculatePrice from "./CalculatePrice";
+// import CalculatePrice from "./CalculatePrice";
 
 const BookingForm = ({ hotel }) => {
   const [submitting, setSubmitting] = useState(false);
@@ -35,6 +35,17 @@ const BookingForm = ({ hotel }) => {
       setSubmitting(false);
     }
   };
+
+  let splitStartDate = startDate.split("-");
+  let splitEndDate = endDate.split("-");
+
+  let newStartDate = splitStartDate[0] + splitStartDate[1] + splitStartDate[2];
+
+  let newEndDate = splitEndDate[0] + splitEndDate[1] + splitEndDate[2];
+
+  let days = newEndDate - newStartDate;
+
+  let total = days * hotel.price;
   return (
     <form className="bookingForm" onSubmit={handleSubmit(onSubmit)}>
       {postError && <p>{postError}</p>}
@@ -103,9 +114,21 @@ const BookingForm = ({ hotel }) => {
           {submitting ? "Booking ..." : "Book"}
         </button>
         <label>Price</label>
-        <p>{hotel.price} NOK</p>
+        <p name="price">{hotel.price} NOK</p>
         <label>Total</label>
-        <CalculatePrice hotel={hotel} startDate={startDate} endDate={endDate} />
+        {/* <CalculatePrice
+          hotel={hotel}
+          startDate={startDate}
+          endDate={endDate}
+          register={register}
+        /> */}
+
+        <input
+          className="form__total"
+          name="total"
+          ref={register}
+          value={total ? total : hotel.price}
+        />
       </fieldset>
     </form>
   );

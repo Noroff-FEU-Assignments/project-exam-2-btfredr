@@ -1,4 +1,4 @@
-const CalculatePrice = ({ hotel, startDate, endDate }) => {
+const CalculatePrice = ({ hotel, startDate, endDate, register }) => {
   let splitStartDate = startDate.split("-");
   let splitEndDate = endDate.split("-");
 
@@ -10,7 +10,11 @@ const CalculatePrice = ({ hotel, startDate, endDate }) => {
 
   let total = days * hotel.price;
 
-  return <p>{total ? total : hotel.price} NOK</p>;
+  return (
+    <p name="total" ref={register}>
+      {total ? total : hotel.price} NOK
+    </p>
+  );
 };
 
 export default CalculatePrice;

@@ -4,8 +4,8 @@ const EnquiryItem = ({ enquiry }) => {
       <div className="message__content">
         <label>Name:</label>
         <p>{enquiry.name}</p>
-        <label>Price:</label>
-        <p>{enquiry.price} NOK</p>
+        <label>Total:</label>
+        <p>{enquiry.total} NOK</p>
         <label>Email:</label>
         <p>{enquiry.email}</p>
         <label>Start Date:</label>

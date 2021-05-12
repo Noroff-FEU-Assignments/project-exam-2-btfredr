@@ -52,7 +52,7 @@ const Add = () => {
       }
     };
     getHotel();
-  }, [id]);
+  }, [id, http]);
 
   return (
     <>

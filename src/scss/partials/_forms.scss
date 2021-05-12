@@ -37,6 +37,12 @@
     margin-top: 1em;
     padding: 0.7em;
   }
+
+  &__total {
+    border: none;
+    font-weight: bold;
+    padding: 0;
+  }
 }
 
 .loginError {
