@@ -1,14 +1,23 @@
 import Heading from "../components/Heading";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import AuthContext from "../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 import EnquiryGrid from "../components/content/EnquiryGrid";
 
 const Enquiries = () => {
   const [enquiries, setEnquiries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [auth, setAuth] = useContext(AuthContext);
+
+  const history = useHistory();
+
+  if (!auth) {
+    history.push("/login");
+  }
 
   useEffect(() => {
     const fetchEnquiries = async () => {
