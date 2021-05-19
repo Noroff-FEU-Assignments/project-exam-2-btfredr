@@ -1,29 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { enquirySchema } from "../utils/schemas";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-// import CalculatePrice from "./CalculatePrice";
 
 const BookingForm = ({ hotel }) => {
   const [submitting, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(null);
 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-
   const enquiryPath = BASE_URL + "/enquiries";
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(enquirySchema),
   });
+  useEffect(() => {
+    setTotalPrice(
+      Math.floor((new Date(endDate) - new Date(startDate)) / 86400000) *
+        parseFloat(hotel.price)
+    );
+  }, [endDate, startDate]);
 
   const onSubmit = async (data) => {
     setSubmitting(true);
     setPostError(null);
     console.log(data);
+    data = { ...data, total: totalPrice, hotelName: hotel.name };
     try {
       const response = await axios.post(enquiryPath, data);
       console.log(response);
@@ -36,16 +42,6 @@ const BookingForm = ({ hotel }) => {
     }
   };
 
-  let splitStartDate = startDate.split("-");
-  let splitEndDate = endDate.split("-");
-
-  let newStartDate = splitStartDate[0] + splitStartDate[1] + splitStartDate[2];
-
-  let newEndDate = splitEndDate[0] + splitEndDate[1] + splitEndDate[2];
-
-  let days = newEndDate - newStartDate;
-
-  let total = days * hotel.price;
   return (
     <form className="bookingForm" onSubmit={handleSubmit(onSubmit)}>
       {postError && <p>{postError}</p>}
@@ -61,21 +57,24 @@ const BookingForm = ({ hotel }) => {
           <span className="form__error">{errors.name.message}</span>
         )}
 
-        <label>Email</label>
-        <input
-          type="string"
-          name="email"
-          ref={register}
-          placeholder="Enter your email..."
-        />
-        {errors.email && (
-          <span className="form__error">{errors.email.message}</span>
-        )}
+        <div>
+          <label>Email</label>
+          <input
+            type="string"
+            name="email"
+            ref={register}
+            placeholder="Enter your email..."
+          />
+          {errors.email && (
+            <span className="form__error">{errors.email.message}</span>
+          )}
+        </div>
         <div className="hotel__dates">
           <div className="hotel__dateContainer">
             <label>Check in</label>
             <input
               onChange={(e) => setStartDate(e.target.value)}
+              value={startDate}
               type="date"
               name="startDate"
               ref={register}
@@ -89,6 +88,7 @@ const BookingForm = ({ hotel }) => {
             <label>Check out</label>
             <input
               onChange={(e) => setEndDate(e.target.value)}
+              value={endDate}
               type="date"
               name="endDate"
               ref={register}
@@ -114,21 +114,9 @@ const BookingForm = ({ hotel }) => {
           {submitting ? "Booking ..." : "Book"}
         </button>
         <label>Price</label>
-        <p name="price">{hotel.price} NOK</p>
+        <p>{hotel.price} NOK</p>
         <label>Total</label>
-        {/* <CalculatePrice
-          hotel={hotel}
-          startDate={startDate}
-          endDate={endDate}
-          register={register}
-        /> */}
-
-        <input
-          className="form__total"
-          name="total"
-          ref={register}
-          value={total ? total : hotel.price}
-        />
+        <p>{totalPrice ? totalPrice : hotel.price} NOK</p>
       </fieldset>
     </form>
   );

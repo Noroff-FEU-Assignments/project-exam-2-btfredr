@@ -43,6 +43,10 @@
     font-weight: bold;
     padding: 0;
   }
+
+  &__hotelName {
+    display: block;
+  }
 }
 
 .loginError {
