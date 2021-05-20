@@ -7,11 +7,13 @@ import Footer from "../components/Footer";
 import BookingForm from "../components/BookingForm";
 import Spinner from "../assets/Spinner.gif";
 import { useParams } from "react-router-dom";
+import Modal from "@material-ui/core/Modal";
 
 const Hotel = () => {
   const [hotel, setHotel] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [openBooking, setOpenBooking] = useState(false);
 
   const { id } = useParams();
 
@@ -62,9 +64,19 @@ const Hotel = () => {
           <div className="hotel__left">
             <h2>{hotel.Heading}</h2>
             <Paragraph content={hotel.description} />
+            <div className="hotel__btnContainer">
+              <button
+                className="hotel__bookBtn"
+                onClick={() => setOpenBooking(true)}
+              >
+                Book Room
+              </button>
+            </div>
           </div>
           <div className="hotel__right">
-            <BookingForm hotel={hotel} />
+            <Modal open={openBooking} onClose={() => setOpenBooking(false)}>
+              <BookingForm hotel={hotel} setOpenBooking={setOpenBooking} />
+            </Modal>
           </div>
         </div>
       </div>
