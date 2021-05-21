@@ -67,5 +67,8 @@
   .bookingForm {
     width: 100%;
     margin-bottom: 3em;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 75px;
   }
 }

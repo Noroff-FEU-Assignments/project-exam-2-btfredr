@@ -73,7 +73,7 @@ const Hotel = () => {
               </button>
             </div>
           </div>
-          <div className="hotel__right">
+          <div>
             <Modal open={openBooking} onClose={() => setOpenBooking(false)}>
               <BookingForm hotel={hotel} setOpenBooking={setOpenBooking} />
             </Modal>

@@ -110,13 +110,15 @@ const BookingForm = ({ hotel, setOpenBooking }) => {
           <div className="hotel__dates">
             <div className="hotel__dateContainer">
               <label>Check in</label>
-              <input
-                onChange={(e) => setStartDate(e.target.value)}
-                value={startDate}
-                type="date"
-                name="startDate"
-                ref={register}
-              />
+              <div>
+                <input
+                  onChange={(e) => setStartDate(e.target.value)}
+                  value={startDate}
+                  type="date"
+                  name="startDate"
+                  ref={register}
+                />
+              </div>
               {errors.startDate && (
                 <span className="form__error">{errors.startDate.message}</span>
               )}
@@ -124,13 +126,15 @@ const BookingForm = ({ hotel, setOpenBooking }) => {
 
             <div className="hotel__dateContainer">
               <label>Check out</label>
-              <input
-                onChange={(e) => setEndDate(e.target.value)}
-                value={endDate}
-                type="date"
-                name="endDate"
-                ref={register}
-              />
+              <div>
+                <input
+                  onChange={(e) => setEndDate(e.target.value)}
+                  value={endDate}
+                  type="date"
+                  name="endDate"
+                  ref={register}
+                />
+              </div>
               {errors.endDate && (
                 <span className="form__error">{errors.endDate.message}</span>
               )}
