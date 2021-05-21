@@ -61,14 +61,35 @@
   display: flex;
   flex-direction: column;
   padding: 1em;
+
+  &__brandInfo {
+    padding-bottom: 2em;
+  }
+
+  &__logo {
+    color: #d00000 !important;
+    font-size: 2em;
+  }
+
+  &__closeBtn {
+    display: none !important;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .bookingForm {
     width: 100%;
     margin-bottom: 3em;
     height: 100%;
     overflow-y: auto;
-    padding-bottom: 75px;
+    padding-bottom: 100px;
+
+    &__logo {
+      padding-bottom: 20px;
+    }
+
+    &__closeBtn {
+      display: block !important;
+    }
   }
 }

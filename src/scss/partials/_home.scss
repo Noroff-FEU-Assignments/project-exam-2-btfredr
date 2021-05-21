@@ -12,13 +12,16 @@
     height: 100vh;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
 
     background-image: url(../../assets/background2.jfif);
+  }
+
+  @media (max-width: 990px) {
+    &__background {
+      background-attachment: scroll;
+    }
   }
 
   &__box {

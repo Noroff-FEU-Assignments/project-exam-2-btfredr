@@ -27,10 +27,11 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    ["@media (max-width:768px)"]: {
+    ["@media (max-width:990px)"]: {
       // eslint-disable-line no-useless-computed-key
       width: "100%",
       height: "100vh",
+      padding: "50px",
     },
   },
 }));
@@ -77,12 +78,17 @@ const BookingForm = ({ hotel, setOpenBooking }) => {
 
   return (
     <div style={modalStyle} className={classes.paper}>
-      <center>
-        <h1 className="nav__logo">Holidaze</h1>
+      <center className="bookingForm__brandInfo">
+        <h1 className="bookingForm__logo">Holidaze</h1>
+        <Button
+          onClick={() => setOpenBooking(false)}
+          className="bookingForm__closeBtn"
+        >
+          Close
+        </Button>
       </center>
       <form className="bookingForm" onSubmit={handleSubmit(onSubmit)}>
         {postError && <p>{postError}</p>}
-        <Button onClick={() => setOpenBooking(false)}>Close</Button>
         <fieldset disabled={submitting}>
           <label>Name</label>
           <input
